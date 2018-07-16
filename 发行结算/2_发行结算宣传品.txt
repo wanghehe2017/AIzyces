@@ -1,0 +1,1572 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          6_发行业务关键字.txt
+Resource          4_发行template.txt
+Library           AutoItLibrary
+
+*** Test Cases ***
+清除所有宣传品发运表
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品发运表
+    ${test}    Get Text    xpath=//button[text()='删除']
+    ${index}    Get Element Count    xpath=//button[text()='删除']
+    log    ${index}
+    :FOR    ${i}    in range    ${index}
+    \    sleep    5
+    \    Run Keyword If    '${test}'=='删除'    Click Element    xpath=//button[text()='删除']
+    \    sleep    5
+    \    弹出框确认保存
+    \    sleep    5
+    \    弹出框确认保存
+    \    sleep    5    Exit For Loop
+    关闭浏览器
+
+清除所有已有的宣传品方案
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    ${test}    Get Text    xpath=//button[3][text()='删除']
+    ${index}    Get Element Count    xpath=//button[3][text()='删除']
+    :FOR    ${i}    in range    ${index}
+    \    sleep    5
+    \    Run Keyword If    '${test}'=='删除'    Click Element    xpath=//button[3][text()='删除']
+    \    sleep    5
+    \    弹出框确认保存
+    \    sleep    5
+    \    弹出框确认保存
+    \    sleep    5    Exit For Loop
+    关闭浏览器
+
+y添加6个宣传品提示
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    影片名称输入    ${videoname}6个宣传品提示
+    添加宣传品
+    编辑宣传品3    2    测试一    个    1    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    3    测试二    个    1    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    4    测试三    个    1    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    5    测试四    个    1    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    6    测试五    个    1    0
+    发行区域选择
+    添加宣传品
+    Sleep    2
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    分配方案中宣传品数量不能超过5种！
+    Sleep    2
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    关闭浏览器
+
+y宣传品编辑提示
+    [Documentation]    1、宣传品类型名称为空提示
+    ...
+    ...    2、宣传品单位为空为空提示
+    ...
+    ...    3、宣传品单位为空为空提示
+    ...
+    ...    4、总数为空和非整数提示
+    ...
+    ...    5、分配数为空和非整数提示
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}宣传品类型名称为空提示
+    添加宣传品
+    编辑宣传品3    2    \    个    10    1
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请输入完整的宣传品信息,类型名称、分配单位、总数、影院最大分配数量等信息不能为空!
+    编辑宣传品3    2    宣传品单位为空提示    \    10    1
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请输入完整的宣传品信息,类型名称、分配单位、总数、影院最大分配数量等信息不能为空!
+    编辑宣传品3    2    宣传品总数为空提示    个    \    1
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请输入数字,不能为空！
+    编辑宣传品3    2    宣传品总数为非正整数    个    -    1
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请输入数字
+    编辑宣传品3    2    宣传品分配为空提示    个    100    \    #这个注释只是为了让最后一个单元格为空
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请输入数字,不能为空！
+    编辑宣传品3    2    宣传品分配数为非正数字提示    个    5    -2    #这个注释只是为了让最后一个单元格为空
+    发行区域选择
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请输入数字！
+    注销
+    关闭浏览器
+
+y宣传品方案本次类型名称重复提示
+    [Documentation]    宣传品类型名称重复提示
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    添加宣传品
+    Sleep    3
+    影片名称输入    ${videoname}宣传品类型名称重复
+    编辑宣传品3    2    名称重复    个    10    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    3    名称重复    个    10    1
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    宣传品类型名称不能重复
+    注销
+    关闭浏览器
+
+y宣传品方案和其他批次类型名称重复提示
+    [Documentation]    宣传品类型名称和其他批次重复提示
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    添加宣传品
+    Sleep    3
+    影片名称输入    ${videoname}宣传品类型名称重复
+    编辑宣传品3    2    测试一    个    10    1    #第一批次
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    宣传品类型名称不能重复
+    注销
+    关闭浏览器
+
+y宣传品方案和其他电影批次类型名称重复不提示
+    [Documentation]    宣传品类型和其他电影宣传品类型名称重复不提示
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    添加宣传品
+    Sleep    3
+    影片名称输入    ${videoname}宣传品类型和其他电影宣传品类型名称重复不提示
+    编辑宣传品3    2    山河故人    个    5    1
+    保存分配方案
+    注销
+    关闭浏览器
+
+y增加宣传品勾选起分
+    [Documentation]    起分
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    3
+    影片名称输入    ${videoname}勾选起分保存
+    添加宣传品
+    编辑宣传品3    2    起分    个    2000    2
+    勾选起分    2
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    关闭浏览器
+
+y增加5个宣传品后删除修改删除
+    [Documentation]    1、删除一个和多个
+    ...    2、修改
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    影片名称输入    ${videoname}5个宣传品删除三个留两个
+    添加宣传品
+    编辑宣传品3    2    删除第一个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    3    删除第二个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    4    删除第三个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    5    删除第四个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    6    删除第五个    个    5    1
+    发行区域选择
+    删除宣传品    2    #删除第一个
+    发行区域选择
+    删除宣传品    3    #删除第三个
+    发行区域选择
+    删除宣传品    3    #删除第四个
+    Sleep    2
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    sleep    20
+    刷新
+    修改宣传品方案    #修改功能删除
+    删除宣传品    2    #删除第一个
+    保存分配方案
+    弹出框确认保存
+    sleep    20
+    关闭浏览器
+
+y增加5个宣传品删除全部不可保存提示
+    [Documentation]    全部删除不可保存
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    影片名称输入    ${videoname}5个宣传品全部删除提示
+    添加宣传品
+    编辑宣传品3    2    删除第一个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    3    删除第二个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    4    删除第三个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    5    删除第四个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    6    删除第五个    个    5    1
+    发行区域选择
+    删除宣传品    2    #删除第一个
+    发行区域选择
+    删除宣传品    2    #删除第二个
+    发行区域选择
+    删除宣传品    2    #删除第三个
+    发行区域选择
+    删除宣传品    2    #删除第四个
+    发行区域选择
+    删除宣传品    2    #删除第五个
+    Sleep    2
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请添加宣传品信息
+    关闭浏览器
+
+y创建宣传品方案后后修改一个
+    [Documentation]    创建后 修改
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    影片名称输入    ${videoname}3个宣传品后修改编辑一个
+    添加宣传品
+    编辑宣传品3    2    修改编辑第一个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    3    修改编辑第二个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    4    修改编辑第三个    个    5    1
+    发行区域选择
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    sleep    20
+    刷新
+    修改宣传品方案
+    编辑宣传品3    2    我被修改了    个    5    1
+    保存分配方案
+    弹出框确认保存
+    Sleep    3
+    关闭浏览器
+
+y创建宣传品方案后后修改多项内容
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    影片名称输入    ${videoname}3个宣传品后修改编辑多项内容
+    添加宣传品
+    编辑宣传品3    2    修改编辑多项内容第一个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    3    修改编辑多项内容第二个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    4    修改编辑多项内容第三个    个    5    1
+    发行区域选择
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    sleep    20
+    刷新
+    修改宣传品方案
+    编辑宣传品3    2    修改编辑一次    张    200    3
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    3    修改编辑二次    台    200    3
+    保存分配方案
+    弹出框确认保存
+    Sleep    3
+    关闭浏览器
+
+y创建宣传品方案后后修改多项逆向提示
+    [Documentation]    修改为错误也提示
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    影片名称输入    ${videoname}3个宣传品后修改编辑多项逆向内容
+    添加宣传品
+    编辑宣传品3    2    修改编辑多项逆向内容第一个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    3    修改编辑多项逆向内容第二个    个    5    1
+    发行区域选择
+    添加宣传品
+    编辑宣传品3    4    修改编辑多项逆向内容第三个    个    5    1
+    发行区域选择
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    sleep    20
+    刷新
+    修改宣传品方案
+    编辑宣传品3    2    \    \    \    1    #仅是为了部位最后一个
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请输入数字,不能为空！
+    编辑宣传品3    2    \    \    100    1    #仅是为了部位最后一个
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请输入完整的宣传品信息,类型名称、分配单位、总数、影院最大分配数量等信息不能为空!
+    编辑宣传品3    2    提示后增加宣传品类型名称    \    100    1    #仅是为了部位最后一个
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    请输入完整的宣传品信息,类型名称、分配单位、总数、影院最大分配数量等信息不能为空!
+    编辑宣传品3    2    提示后增加宣传品类型    提示后增加宣传品单位    100    1    #仅是为了部位最后一个
+    保存分配方案
+    弹出框确认保存
+    Sleep    3
+    关闭浏览器
+
+y票房同一时间保存
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房同一时间
+    添加宣传品
+    票房统计时间    2018-05-10    2018-05-10
+    编辑宣传品3    2    票房同一时间    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    关闭浏览器
+
+y票房统计时间大于一百天保存
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房统计时间大于一百天
+    添加宣传品
+    票房统计时间    2018-01-10    2018-05-10
+    编辑宣传品3    2    票房统计时间大于一百天    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    关闭浏览器
+
+y票房统计时间开始晚于结束时间提示
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房统计时间大于一百天
+    添加宣传品
+    票房统计时间    2018-05-10    2018-01-10
+    编辑宣传品3    2    票房统计时间大于一百天    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    票房统计时间的截止日期不能早于开始日期,请重新输入
+    关闭浏览器
+
+y票房统计时间为未来时间段
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房统计时间为未来时间段
+    添加宣传品
+    票房统计时间    2018-06-10    2018-07-10
+    编辑宣传品3    2    票房统计时间为未来时间段    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    关闭浏览器
+
+y票房统计时间为过去时间段
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房统计时间为过去时间段
+    添加宣传品
+    票房统计时间    2018-01-10    2018-03-10
+    编辑宣传品3    2    票房统计时间为过去时间段    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    关闭浏览器
+
+y票房使用发行区域选定地区和空提示
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房使用发行区域选定地区以及空提示
+    添加宣传品
+    编辑宣传品3    2    票房使用发行区域选定地区和空提示    个    5    1
+    发行区域选择
+    Sleep    3
+    保存分配方案
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    未选择影院，无法保存    #验证空地区
+    Sleep    2
+    发行区域选择方式    Radio1
+    地区输入    316    #北京
+    地区输入    347    #天津
+    地区输入    780    #河南
+    Sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    765
+    保存分配方案
+    关闭浏览器
+
+y票房使用发行区域选定特定影院
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}发行区域影院
+    添加宣传品
+    编辑宣传品3    2    地区选为发行区域影院    个    5    1
+    使用发行区域内的影院
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    9787    #验证数量
+    保存分配方案
+    关闭浏览器
+
+y票房多地区和影院
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房使用发行区域选定多个地区和影院
+    添加宣传品
+    编辑宣传品3    2    票房使用发行区域选定多个地区和影院    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    Radio1
+    地区输入    316    #北京
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    217
+    影院输入    北京市朝阳区    #北京地区的影院数目不加
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    217
+    影院输入    河北省保定市    #不是北京地区的加1
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    218
+    发行区域选择方式    Radio1
+    地区输入    347    #天津
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    316
+    发行区域选择方式    Radio1
+    地区输入    780    #河南
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    766
+    保存分配方案
+    弹出框确认保存
+    关闭浏览器
+
+y票房多院线和影院
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房多院线和影院
+    添加宣传品
+    编辑宣传品3    2    票房多院线和影院    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    Radio2
+    院线输入    广州金逸珠江电影院线有限公司    #北京
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    353
+    影院输入    北京嘉裕金逸国际电影城有限公司朝阳分公司    #北京地区的影院数目不加
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    353
+    影院输入    河北省保定市    #不是北京地区的加1
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    354
+    院线输入    深圳市中影南方电影新干线有限公司    #天津
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    1039
+    保存分配方案
+    弹出框确认保存
+    关闭浏览器
+
+y票房地区和院线和影院合并
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房地区和院线和影院
+    添加宣传品
+    编辑宣传品3    2    票房地区和院线和影院    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    rad_Cinemas1    #地区和影院合并
+    地区输入    316    #北京
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    217
+    地区输入    316    #北京
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    0    #再次勾选是去除，所以为0
+    院线输入    广州金逸珠江电影院线有限公司    #金逸
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    353
+    院线输入    广州金逸珠江电影院线有限公司    #金逸
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    0    #再次勾选是去除，所以为0
+    地区输入    316    #北京
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    217
+    院线输入    广州金逸珠江电影院线有限公司    #天津
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    564
+    影院输入    河北保定    #不是北京地区的加1
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    565
+    保存分配方案
+    弹出框确认保存
+    关闭浏览器
+
+y票房地区和院线和影院共有
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房地区和院线和影院共有
+    添加宣传品
+    编辑宣传品3    2    票房地区和院线和影院共有    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    rad_Cinemas2    #地区和影院合并
+    地区输入    316    #北京
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    0
+    院线输入    广州金逸珠江电影院线有限公司    #金逸
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    6
+    影院输入    河北保定    #不是北京地区的加1
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    7
+    保存分配方案
+    弹出框确认保存
+    关闭浏览器
+
+y票房区域方式切换
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    Sleep    2
+    影片名称输入    ${videoname}票房区域方式切换
+    添加宣传品
+    编辑宣传品3    2    票房区域方式切换    个    5    1
+    发行区域选择
+    Sleep    3
+    发行区域选择方式    rad_Cinemas2    #地区和影院合并
+    地区输入    316    #北京
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    0
+    院线输入    广州金逸珠江电影院线有限公司    #金逸
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    6
+    影院输入    河北保定    #不是北京地区的加1
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    7
+    发行区域选择方式    Radio1    #地区和影院合并
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    218
+    发行区域选择方式    Radio2    #院线和影院合并
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    354
+    发行区域选择方式    rad_Cinemas2    #地区和影院共有
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    7
+    发行区域选择方式    rad_Cinemas1    #院线和地区，影院合并
+    sleep    1
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    565
+    保存分配方案
+    弹出框确认保存
+    关闭浏览器
+
+L宣传品方案流程
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    ${planname}    影片名称输入    ${videoname}流程中修改
+    添加宣传品
+    编辑宣传品3    2    流程中修改    个    5    1
+    发行区域选择
+    Sleep    2
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    sleep    1
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    生成中
+    Should Be Equal    ${Reviewprogressl}    0/0 院线 已审核通过
+    sleep    20
+    刷新
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/1 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    未审核
+    Should Be Equal    ${Reviewprogressl}    0/1 院线 已审核通过
+    sleep    1
+    修改宣传品方案    #修改功能删除
+    保存分配方案
+    弹出框确认保存
+    sleep    1
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    生成中
+    Should Be Equal    ${Reviewprogressl}    0/0 院线 已审核通过
+    sleep    20
+    刷新
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    未审核
+    Should Be Equal    ${Reviewprogressl}    0/1 院线 已审核通过
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    影片责任人提交审核
+    sleep    2
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    返回    3
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    审核中
+    Should Be Equal    ${Reviewprogressl}    0/1 院线 已审核通过
+    注销
+    关闭浏览器
+    登录    zxy    #院线责任人登录
+    影片发行    03
+    国产影片
+    影片查询    河间圣手
+    Sleep    3
+    进入发行    2
+    点击宣传品分配方案
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    sleep    2
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    院线影院分配结果    2    #影院
+    院线责任人及代表审核
+    院线影院分配结果    1    #院线
+    ${sumRealCount}    Get Element Attribute    xpath=//input[contains(@id,'sumRealCount')]@value
+    Should Be Equal    ${sumRealCount}    5
+    sleep    1
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜绿色状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[4]/td[5]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    sleep    2
+    注销
+    关闭浏览器
+    登录    jyzj1    #院线责任人登录
+    影片发行    10
+    院线代表进入宣传品方案
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    院线代表进入具体宣传品方案
+    院线责任人及代表审核
+    sleep    2
+    返回    5
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核通过
+    sleep    2
+    注销
+    关闭浏览器
+
+L宣传品方案多院线流程
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    ${planname}    影片名称输入    ${videoname}多个院线流程3
+    添加宣传品
+    编辑宣传品3    2    多个院线流程3    个    874    1
+    发行区域选择
+    Sleep    2
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    sleep    2
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    353
+    院线输入    中影星美
+    sleep    2
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    874
+    保存分配方案
+    弹出框确认保存
+    sleep    1
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    生成中
+    Should Be Equal    ${Reviewprogressl}    0/0 院线 已审核通过
+    sleep    30
+    刷新
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/1 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    未审核
+    Should Be Equal    ${Reviewprogressl}    0/2 院线 已审核通过
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    ${Acolor}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${Acolor1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${Acolor2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    ff0000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    Should Contain    ${Acolor}    ff0000    #验证影片责任人的颜色绿状态
+    Should Contain    ${Acolor1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${Acolor2}    ff0000    #验证院线代表的颜色红状态
+    ${sumRealCount}    Get Element Attribute    xpath=//input[contains(@id,'sumRealCount')]@value
+    Should Be Equal    ${sumRealCount}    874
+    院线影院分配结果    2    #影院标签
+    选择院线    30010001    #金逸审核
+    影院分配结果查询
+    影片责任人提交审核
+    院线影院分配结果    1    #院线标签
+    sleep    2
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    ${Acolor}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${Acolor1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${Acolor2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    ff0000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    Should Contain    ${Acolor}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${Acolor1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${Acolor2}    ff0000    #验证院线代表的颜色红状态
+    返回    3
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    注销
+    关闭浏览器
+    登录    zxy    #金逸院线责任人登录
+    影片发行    03
+    国产影片
+    影片查询    河间圣手
+    Sleep    3
+    进入发行    2
+    点击宣传品分配方案
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    院线影院分配结果    2    #影院
+    院线责任人及代表审核
+    院线影院分配结果    1    #院线
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    注销
+    关闭浏览器
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    ${Acolor}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${Acolor1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${Acolor2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    ff0000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    Should Contain    ${Acolor}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${Acolor1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${Acolor2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    院线影院分配结果    2    #影院标签
+    选择院线    01010001    #中影星美
+    影院分配结果查询
+    影片责任人提交审核
+    院线影院分配结果    1    #院线标签
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    ${Acolor}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${Acolor1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${Acolor2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    Should Contain    ${Acolor}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${Acolor1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${Acolor2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    返回    3
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    注销
+    关闭浏览器
+    登录    chens    #院线责任人登录
+    影片发行    03
+    国产影片
+    影片查询    河间圣手
+    Sleep    3
+    进入发行    2
+    点击宣传品分配方案
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    院线影院分配结果    2    #影院
+    院线责任人及代表审核
+    院线影院分配结果    1    #院线
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    注销
+    关闭浏览器
+    登录    jyzj1    #院线责任人登录
+    影片发行    10
+    院线代表进入宣传品方案
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    院线代表进入具体宣传品方案
+    院线责任人及代表审核
+    sleep    2
+    返回    5
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    sleep    2
+    注销
+    关闭浏览器
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    sleep    2
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    ${Acolor}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${Acolor1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${Acolor2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    Should Contain    ${Acolor}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${Acolor1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${Acolor2}    008000    #验证院线代表的颜色红状态
+    返回    3
+    注销
+    关闭浏览器
+    登录    zyxm1    #院线代表人登录
+    影片发行    10
+    院线代表进入宣传品方案
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    院线代表进入具体宣传品方案
+    院线责任人及代表审核
+    sleep    2
+    返回    5
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核通过
+    sleep    2
+    注销
+    关闭浏览器
+    登录    cs    #生成发运表（待定）
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[5]    #审核通过
+    Should Be Equal    ${auditstatusl1}    审核通过
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    ${Acolor}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${Acolor1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${Acolor2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[5]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    008000    #验证院线代表的颜色红状态
+    Should Contain    ${Acolor}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${Acolor1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${Acolor2}    008000    #验证院线代表的颜色红状态
+    sleep    2
+    返回    3
+    注销
+    关闭浏览器
+
+L宣传品方案多院线流程打回
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    ${planname}    影片名称输入    ${videoname}流程打回1
+    添加宣传品
+    编辑宣传品3    2    流程打回1    个    400    1
+    发行区域选择
+    Sleep    2
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    sleep    2
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    353
+    保存分配方案
+    弹出框确认保存
+    sleep    1
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    生成中
+    Should Be Equal    ${Reviewprogressl}    0/0 院线 已审核通过
+    sleep    35
+    刷新
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/1 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    未审核
+    Should Be Equal    ${Reviewprogressl}    0/1 院线 已审核通过
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    ff0000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    ${sumRealCount}    Get Element Attribute    xpath=//input[contains(@id,'sumRealCount')]@value
+    Should Be Equal    ${sumRealCount}    400
+    院线影院分配结果    2    #影院标签
+    选择院线    30010001    #金逸审核
+    影院分配结果查询
+    影片责任人提交审核
+    院线影院分配结果    1    #院线标签
+    sleep    2
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    返回    3
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    注销
+    关闭浏览器
+    登录    zxy    #金逸院线责任人登录
+    影片发行    03
+    国产影片
+    影片查询    河间圣手
+    Sleep    3
+    进入发行    2
+    点击宣传品分配方案
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    院线影院分配结果    2    #影院
+    院线责任人及代表审核
+    院线影院分配结果    1    #院线
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    注销
+    关闭浏览器
+    登录    jyzj1    #院线责任人登录
+    影片发行    10
+    院线代表进入宣传品方案
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    院线代表进入具体宣传品方案
+    影院分配数值    11059301    #11059301北京嘉裕金逸国际电影城有限公司朝阳分公司
+    院线责任人及代表审核
+    sleep    2
+    返回    5
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    sleep    2
+    注销
+    关闭浏览器
+    登录    zxy    #金逸院线责任人登录
+    影片发行    03
+    国产影片
+    影片查询    河间圣手
+    Sleep    3
+    进入发行    2
+    点击宣传品分配方案
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    008000    #验证院线代表的颜色红状态
+    sleep    2
+    院线影院分配结果    2    #影院
+    院线责任人及代表审核
+    院线影院分配结果    1    #院线
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    008000    #验证院线代表的颜色红状态
+    sleep    2
+    注销
+    关闭浏览器
+    登录    cs    #生成发运表（待定）
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[5]    #审核通过
+    Should Be Equal    ${auditstatusl1}    审核通过
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    008000    #验证院线代表的颜色红状态
+    sleep    2
+    返回    3
+    生成发运表
+    弹出框确认保存
+    sleep    3
+    弹出框确认保存
+    注销
+    关闭浏览器
+
+生成发运表并导出
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    ${planname}    影片名称输入    ${videoname}流程打回1
+    添加宣传品
+    编辑宣传品3    2    流程打回1    个    400    1
+    发行区域选择
+    Sleep    2
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    sleep    2
+    ${cinemaTotal}    Get Text    id=cinemaTotal
+    Should Be Equal As Numbers    ${cinemaTotal}    353
+    保存分配方案
+    弹出框确认保存
+    sleep    1
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    生成中
+    Should Be Equal    ${Reviewprogressl}    0/0 院线 已审核通过
+    sleep    35
+    刷新
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/1 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    未审核
+    Should Be Equal    ${Reviewprogressl}    0/1 院线 已审核通过
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    ff0000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    ${sumRealCount}    Get Element Attribute    xpath=//input[contains(@id,'sumRealCount')]@value
+    Should Be Equal    ${sumRealCount}    400
+    院线影院分配结果    2    #影院标签
+    选择院线    30010001    #金逸审核
+    影院分配结果查询
+    影片责任人提交审核
+    院线影院分配结果    1    #院线标签
+    sleep    2
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    返回    3
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    注销
+    关闭浏览器
+    登录    zxy    #金逸院线责任人登录
+    影片发行    03
+    国产影片
+    影片查询    河间圣手
+    Sleep    3
+    进入发行    2
+    点击宣传品分配方案
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    院线影院分配结果    2    #影院
+    院线责任人及代表审核
+    院线影院分配结果    1    #院线
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    注销
+    关闭浏览器
+    登录    jyzj1    #院线责任人登录
+    影片发行    10
+    院线代表进入宣传品方案
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    院线代表进入具体宣传品方案
+    影院分配数值    11059301    #11059301北京嘉裕金逸国际电影城有限公司朝阳分公司
+    院线责任人及代表审核
+    sleep    2
+    返回    5
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    sleep    2
+    注销
+    关闭浏览器
+    登录    zxy    #金逸院线责任人登录
+    影片发行    03
+    国产影片
+    影片查询    河间圣手
+    Sleep    3
+    进入发行    2
+    点击宣传品分配方案
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    008000    #验证院线代表的颜色红状态
+    sleep    2
+    院线影院分配结果    2    #影院
+    院线责任人及代表审核
+    院线影院分配结果    1    #院线
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    008000    #验证院线代表的颜色红状态
+    sleep    2
+    注销
+    关闭浏览器
+    登录    cs    #生成发运表（待定）
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[5]    #审核通过
+    Should Be Equal    ${auditstatusl1}    审核通过
+    影片责任人和院线责任人进入具体宣传品方案    ${planname}
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    008000    #验证院线代表的颜色红状态
+    sleep    2
+    返回    3
+    生成发运表
+    弹出框确认保存
+    sleep    3
+    弹出框确认保存
+    返回    2
+    sleep    3
+    返回    2
+    点击宣传品发运表
+    进入宣传品具体宣传品
+    导出发运表
+    注销
+    关闭浏览器
+
+宣传品方案生成和流程中删除
+    影片责任创建影片并提交审核    宣传品创建后生成中删除
+    ${lookstu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[1]@disabled    #查看
+    Should Be Equal    ${lookstu}    ${null}
+    ${modifystu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[2]@disabled    #修改
+    Should Be Equal    ${modifystu}    true
+    ${delestau}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[3]@disabled    #删除状态是否为true
+    Should Be Equal    ${delestau}    ${null}
+    删除宣传品方案    1    #创建后删除----
+    弹出框确认保存    #确认删除
+    弹出框确认保存
+    关闭浏览器
+    影片责任创建影片并提交审核    宣传品创建未审核删除    #宣传品创建未审核删除------
+    sleep    20
+    刷新
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/1 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    未审核
+    Should Be Equal    ${Reviewprogressl}    0/1 院线 已审核通过
+    sleep    1
+    ${lookstu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[1]@disabled    #查看
+    Should Be Equal    ${lookstu}    ${null}
+    ${modifystu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[2]@disabled    #修改
+    Should Be Equal    ${modifystu}    ${null}
+    ${delestau}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[3]@disabled    #删除状态是否为true
+    Should Be Equal    ${delestau}    ${null}
+    删除宣传品方案    1    #宣传品创建未审核删除
+    弹出框确认保存    #确认删除
+    弹出框确认保存
+    关闭浏览器
+    ${planname}    影片责任创建影片并提交审核    宣传品创建审核中删除1    #宣传品创建审核中删除-----
+    保存后提交审核    ${planname}
+    关闭浏览器
+    院线责任人审核    ${planname}
+    关闭浏览器
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    ${lookstu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[1]@disabled    #查看
+    Should Be Equal    ${lookstu}    ${null}
+    ${modifystu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[2]@disabled    #修改
+    Should Be Equal    ${modifystu}    ${null}
+    ${delestau}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[3]@disabled    #删除状态是否为true
+    Should Be Equal    ${delestau}    ${null}
+    删除宣传品方案    1
+    弹出框确认保存    #确认删除
+    弹出框确认保存
+    关闭浏览器
+
+宣传品方案审核通过后和生成发运表后删除
+    ${planname}    影片责任创建影片并提交审核    宣传品创建审核通过删除1    #宣传品创建审核通过删除1
+    保存后提交审核    ${planname}
+    关闭浏览器
+    院线责任人审核    ${planname}
+    关闭浏览器
+    院线代表提交审核
+    关闭浏览器
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    ${lookstu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[2]/button[1]@disabled    #查看
+    Should Be Equal    ${lookstu}    ${null}
+    ${modifystu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[2]/button[2]@disabled    #修改
+    Should Be Equal    ${modifystu}    ${null}
+    ${delestau}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[2]/button[3]@disabled    #删除状态是否为true
+    Should Be Equal    ${delestau}    ${null}
+    删除宣传品方案    2
+    弹出框确认保存    #确认删除
+    弹出框确认保存
+    关闭浏览器
+    ${planname}    影片责任创建影片并提交审核    宣传品生成发运表删除2    #宣传品生成发运表删除1
+    保存后提交审核    ${planname}
+    关闭浏览器
+    院线责任人审核    ${planname}
+    关闭浏览器
+    院线代表提交审核
+    关闭浏览器
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    生成发运表
+    弹出框确认保存
+    sleep    2
+    弹出框确认保存
+    sleep    2
+    返回    2
+    ${lookstu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[1]@disabled    #查看
+    Should Be Equal    ${lookstu}    ${null}
+    ${modifystu}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[2]@disabled    #修改
+    Should Be Equal    ${modifystu}    true
+    ${delestau}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[3]@disabled    #删除状态是否为true
+    Should Be Equal    ${delestau}    true
+    关闭浏览器
+    登录    cs
+    影片发行    03
+    国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    生成发运表
+    弹出框确认保存
+    sleep    2
+    弹出框确认保存
+    sleep    2
+    返回    2
