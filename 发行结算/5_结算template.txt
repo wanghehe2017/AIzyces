@@ -1,0 +1,61 @@
+*** Settings ***
+Library           Selenium2Library
+Library           ExcelLibrary
+Library           Collections
+
+*** Keywords ***
+upfile
+    [Arguments]    ${i}
+    登录    wh1
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入上传页面ifarme    mainFrame
+    Open Excel    G:\\AIzyces\\发行结算上传文件内容\\upfile.xls
+    ${data1}    Read Cell Data By Name    Sheet1    A${i}
+    上传文件    ${data1}
+    选择上传结算单位    百度影院
+    点击确定
+    sleep    3
+    ${massage}    Handle Alert
+    Should Contain    ${massage}    影院：东港市百度影视城 影院专资编码：21060401 结算月份：2018-04
+    确认
+    sleep    2
+    ${text}    获取提示信息
+    log    ${text}
+    点击后退
+    退出iframe
+    注销
+    关闭浏览器
+
+上传文件由生产到测试
+    [Arguments]    ${i}
+    登录    wh1
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入上传页面ifarme    mainFrame
+    Open Excel    G:\\AIzyces\\发行结算上传文件内容\\upfile1.xls
+    ${upfilepath}    Read Cell Data By Name    Sheet1    A${i}
+    ${jiesuandanwei}    Read Cell Data By Name    Sheet1    B${i}
+    上传文件    ${upfilepath}
+    选择上传结算单位    ${jiesuandanwei}
+    点击确定
+    sleep    3
+    ${massage}    Handle Alert
+    log    ${massage}
+    sleep    2
+    ${text}    获取提示信息
+    log    ${text}
+    点击后退
+    退出iframe
+    注销
+    关闭浏览器
+
+donwload
+    Win Wait    另存为
+    Win Activate    另存为
+    Control Set Text    \    \    Edit1    G:\\AIzyces\\发行结算上传文件内容\\downloadfile\\ERP1.xlsx
+    Control Click    \    \    Button2

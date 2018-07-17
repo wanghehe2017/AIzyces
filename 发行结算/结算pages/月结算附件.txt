@@ -1,0 +1,59 @@
+*** Settings ***
+Library           Selenium2Library
+Library           Collections
+Library           AutoItLibrary
+
+*** Keywords ***
+点击上传盖章文件
+    Wait Until Element Is Visible    xpath=.//span[text()='上传结算盖章件']
+    Click Element    xpath=.//span[text()='上传结算盖章件']
+
+输入原文件名称
+    [Arguments]    ${attaoldname}
+    Wait Until Element Is Visible    id=searchform_filter_LIKES_attaoldname
+    Input Text    id=searchform_filter_LIKES_attaoldname    ${attaoldname}
+
+选择上传结算单位
+    [Arguments]    ${name}
+    Select From List    id=settlementid    ${name}
+
+验证附件页面搜索元素
+    [Arguments]    ${bnest}    ${bnest1}    ${bnest2}    ${bnest3}    ${bnest4}    ${bnest5}
+    ...    ${bnest6}    ${bnest7}    ${bnest8}
+    sleep    5
+    ${nest}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_EQS_ts___settlementid    #结算单位
+    Should Be Equal As Strings    ${nest}    ${bnest}
+    ${nest1}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_LIKES_attaoldname    #文件原始名称
+    Should Be Equal As Strings    ${nest1}    ${bnest1}
+    ${nest2}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_LIKES_ts___settlename    #结算单位
+    Should Be Equal As Strings    ${nest2}    ${bnest2}
+    ${nest3}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_LIKES_ts___theatrecode    #专资编码
+    Should Be Equal As Strings    ${nest3}    ${bnest3}
+    ${nest4}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_INS_isprocess    #审核状态
+    Should Be Equal As Strings    ${nest4}    ${bnest4}
+    ${nest5}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_EQS_attachmentid    #上传状态
+    Should Be Equal As Strings    ${nest5}    ${bnest5}
+    ${nest6}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_isSelectNewSettlement    #上传状态
+    Should Be Equal As Strings    ${nest6}    ${bnest6}
+    ${nest7}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_EQS_ts___settlemode    #结算方式
+    Should Be Equal As Strings    ${nest7}    ${bnest7}
+    ${nest8}    Run Keyword And Return Status    Element Should Be Visible    id=firstYMStr    #结算年月
+    Should Be Equal As Strings    ${nest8}    ${bnest8}
+
+检查总票房和分账合计
+    [Arguments]    ${fcount1}    ${zcount1}
+    sleep    2
+    ${fcount}    Run Keyword And Return Status    Element Should Be Visible    xpath=.//th[text()='分账片款合计']    #分账片款合计
+    Should Be Equal As Strings    ${fcount}    ${fcount1}
+    ${zcount}    Run Keyword And Return Status    Element Should Be Visible    xpath=.//th[text()='总票房']    #总票房
+    Should Be Equal As Strings    ${zcount}    ${zcount1}
+
+验证导出等按钮
+    [Arguments]    ${bsearch}    ${bexport}    ${bexport1}
+    sleep    3
+    ${search}    Run Keyword And Return Status    Element Should Be Visible    xpath=//*[@id="searchform"]/div/input    #查询按钮
+    Should Be Equal As Strings    ${search}    ${bsearch}
+    ${export}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[5]/a[1]    #导出选中文件
+    Should Be Equal As Strings    ${export}    ${bexport}
+    ${export1}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[5]/a[2]    #导出选中文件
+    Should Be Equal As Strings    ${export1}    ${bexport1}

@@ -1,0 +1,158 @@
+*** Settings ***
+Library           Selenium2Library
+Library           AutoItLibrary
+
+*** Keywords ***
+检查标题元素
+    [Arguments]    ${i}    ${btitle}
+    ${结算单位名称}    Get Text    xpath=//html/body/div[6]/table/thead/tr/th[${i}]    #2.结算单位名称3.影院专资编码4.结算年月5.审核状态
+    Should Contain    ${结算单位名称}    ${btitle}    #6.处理结果7.上传完成时间8.分账比例对比9.总票房    #10.净票房11.分账片款12.实际应收13.差额14.操作
+
+勾选第一个复选框
+    sleep    5
+    Click Element    xpath=//html/body/div[6]/table/tbody/tr[1]/td[1]/input[4]
+
+检验第一个数据
+    sleep    5
+    sleep    5
+    ${title}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[1]/input[4]    #复选框
+    Should Be Equal As Strings    ${title}    ${btitle}
+    ${title1}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[2]/a    #结算单位名称
+    Should Be Equal As Strings    ${title1}    ${btitle1}
+    ${title2}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[3]    #影院专资编码
+    Should Be Equal As Strings    ${title2}    ${btitle2}
+    ${title5}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[4]    #结算年月
+    Should Be Equal As Strings    ${title5}    ${btitle5}
+    ${title6}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[5]    #审核状态
+    Should Be Equal As Strings    ${title6}    ${btitle6}
+    ${title7}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[6]    #处理结果
+    Should Be Equal As Strings    ${title7}    ${btitle7}
+    ${title8}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[7]    #上传完成时间
+    Should Be Equal As Strings    ${title8}    ${btitle8}
+    ${title9}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[8]    #系统比例
+    Should Be Equal As Strings    ${title9}    ${btitle9}
+    ${title10}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[9]    #分账比例对比
+    Should Be Equal As Strings    ${title10}    ${btitle10}
+    ${title11}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[10]    #总票房
+    Should Be Equal As Strings    ${title11}    ${btitle11}
+    ${title12}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[11]    #净票房
+    Should Be Equal As Strings    ${title12}    ${btitle12}
+    ${title13}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[12]    #分账片款
+    Should Be Equal As Strings    ${title13}    ${btitle13}
+    ${title14}    Run Keyword And Return Status    Element Should Be Visible    xpath=//html/body/div[6]/table/tbody/tr[1]/td[13]    #差额
+    Should Be Equal As Strings    ${title14}    ${btitle14}
+
+结算审核数据搜素条件
+    [Arguments]    ${bnest}    ${bnest1}    ${bnest2}    ${bnest3}    ${bnest4}    ${bnest5}
+    ...    ${bnest6}    ${bnest7}    ${bnest8}
+    sleep    5
+    ${nest}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_EQS_ts___settlementid    #结算单位
+    Should Be Equal As Strings    ${nest}    ${bnest}
+    ${nest1}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_LIKES_ts___settlename    #结算单位名称
+    Should Be Equal As Strings    ${nest1}    ${bnest1}
+    ${nest2}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_LIKES_ts___theatrecode    #专资编码
+    Should Be Equal As Strings    ${nest2}    ${bnest2}
+    ${nest3}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_INS_isprocess    #审核状态
+    Should Be Equal As Strings    ${nest3}    ${bnest3}
+    ${nest4}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_EQS_attachmentid    #上传状态
+    Should Be Equal As Strings    ${nest4}    ${bnest4}
+    ${nest5}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_EQS_ts2___settlementid    #是否新增
+    Should Be Equal As Strings    ${nest5}    ${bnest5}
+    ${nest6}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_EQS_t___ismatchfzbl    #分账比例
+    Should Be Equal As Strings    ${nest6}    ${bnest6}
+    ${nest7}    Run Keyword And Return Status    Element Should Be Visible    id=searchform_filter_EQS_ts___settlemode    #结算方式
+    Should Be Equal As Strings    ${nest7}    ${bnest7}
+    ${nest8}    Run Keyword And Return Status    Element Should Be Visible    id=firstYMStr    #结算年月
+    Should Be Equal As Strings    ${nest8}    ${bnest8}
+
+检查复选框
+    [Arguments]    ${t1}
+    sleep    5
+    ${title}    Run Keyword And Return Status    Element Should Be Visible    id=chkall    #复选框
+    Should Be Equal As Strings    ${title}    ${t1}
+
+下拉选择结算单位
+    [Arguments]    ${ticketsettlementid}
+    Wait Until Element Is Visible    id=searchform_filter_EQS_ts___settlementid
+    Select From List    id=searchform_filter_EQS_ts___settlementid    ${ticketsettlementid}
+
+输入结算单位名称
+    [Arguments]    ${settlename}
+    Wait Until Element Is Visible    id=searchform_filter_LIKES_ts___settlename
+    Input Text    id=searchform_filter_LIKES_ts___settlename    ${settlename}
+
+输入专资编码
+    [Arguments]    ${zzcode}
+    Wait Until Element Is Visible    id=searchform_filter_LIKES_ts___theatrecode
+    Input Text    id=searchform_filter_LIKES_ts___theatrecode    ${zzcode}
+
+选择上传状态
+    [Arguments]    ${attachmentid}
+    Wait Until Element Is Visible    id=searchform_filter_EQS_attachmentid
+    Select From List    id=searchform_filter_EQS_attachmentid    ${attachmentid}
+
+查询选择结算年月
+    [Arguments]    ${firstYMStr}
+    Wait Until Element Is Visible    id=firstYMStr
+    Execute Javascript    document.getElementById('firstYMStr').removeAttribute("readonly")
+    Execute Javascript    document.getElementById('firstYMStr').value='${firstYMStr}'
+
+点击下载原始文件
+    Wait Until Element Is Visible    Xpath=//html/body/div[6]/table/tbody/tr[1]/td[9]/a
+    Click Element    Xpath=//html/body/div[6]/table/tbody/tr[1]/td[9]/a
+    sleep    1
+
+选择审核状态
+    [Arguments]    ${isprocess}
+    Wait Until Element Is Visible    id=searchform_filter_INS_isprocess
+    Select From List    id=searchform_filter_INS_isprocess    ${isprocess}
+
+下拉选择上传状态
+    [Arguments]    ${upstatus}
+    Wait Until Element Is Visible    id=searchform_filter_EQS_attachmentid
+    Select From List    id=searchform_filter_EQS_attachmentid    ${upstatus}
+
+选择是否仅为新增
+    [Arguments]    ${isnew}
+    Wait Until Element Is Visible    id=searchform_filter_EQS_ts2___settlementid
+    Select From List    id=searchform_filter_EQS_ts2___settlementid    ${isnew}
+
+下拉选择分账比例
+    [Arguments]    ${ismatchfzbl}
+    Wait Until Element Is Visible    id=searchform_filter_EQS_t___ismatchfzbl
+    Select From List    id=searchform_filter_EQS_t___ismatchfzbl    ${ismatchfzbl}
+
+选择结算方式
+    [Arguments]    ${settlemode}
+    Wait Until Element Is Visible    id=searchform_filter_EQS_ts___settlemode
+    Select From List    id=searchform_filter_EQS_ts___settlemode    ${settlemode}
+
+点击票房计算
+    [Arguments]    ${i}
+    sleep    5
+    Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[1]    #票房计算
+    Click Element    Xpath=//html/body/div[5]/a[1]
+    sleep    1
+
+点击审核通过
+    Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[2][text()='审核通过']    #审核通过
+    Click Element    Xpath=//html/body/div[5]/a[2][text()='审核通过']
+    sleep    1
+
+点击驳回
+    sleep    5
+    Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[3]    #点击驳回
+    Click Element    Xpath=//html/body/div[5]/a[3]
+    sleep    1
+
+导出ERP文件
+    sleep    5
+    Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[4]    #点击ERP
+    Click Element    Xpath=//html/body/div[5]/a[4]
+    sleep    1
+
+下载盖章文件
+    sleep    5
+    Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[5]    #下载盖章件
+    Click Element    Xpath=//html/body/div[5]/a[5]
+    sleep    1

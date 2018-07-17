@@ -1,0 +1,20 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Keywords ***
+点击宣传品发运表
+    Wait Until Element Is Visible    xpath=//html/body/form/table[5]/tbody/tr[1]/td[1]/table/tbody/tr[3]/td/div[3]/a/ul/li[1]
+    Click Element    xpath=//html/body/form/table[5]/tbody/tr[1]/td[1]/table/tbody/tr[3]/td/div[3]/a/ul/li[1]    #流程中的方块
+
+进入宣传品发运表具体分配方案
+    Wait Until Element Is Visible    xpath=//html/body/form/table[3]/tbody/tr[2]/td[3]/a/font
+    Click Element    xpath=//html/body/form/table[3]/tbody/tr[2]/td[3]/a/font
+
+导出发运表
+    Wait Until Element Is Visible    id=btnExport
+    Click Element    id=btnExport
+
+生成发运表
+    Click Element    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/input    #选择要生成的分配方案
+    sleep    2
+    Click Element    xpath=//html/body/form/table[1]/tbody/tr/td[4]/input

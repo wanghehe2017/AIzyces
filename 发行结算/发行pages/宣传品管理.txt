@@ -1,0 +1,141 @@
+*** Settings ***
+Library           Selenium2Library
+Library           AutoItLibrary
+
+*** Keywords ***
+新建分配方案
+    Click Element    xpath=//html/body/form/table[1]/tbody/tr/td[3]/input
+
+删除宣传品方案
+    [Arguments]    ${i}
+    Wait Until Element Is Visible    xpath=//html/body/form/table[3]/tbody/tr[2]/td[${i}]/button[3]    #1为没有审核通过的时的删除xpant，2是有审核通过，有小方框时的xpath
+    Click Element    xpath=//html/body/form/table[3]/tbody/tr[2]/td[${i}]/button[3]
+
+修改宣传品方案
+    Wait Until Element Is Visible    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[2]
+    Click Element    xpath=//html/body/form/table[3]/tbody/tr[2]/td[1]/button[2]
+
+进入具体宣传品方案
+    [Arguments]    ${planname}
+    Click Element    xpath=.//font[text()='${planname}']
+
+输入分配方案名称
+    [Arguments]    ${PlanName}
+    Input Text    id=PlanName    ${PlanName}    #宣传品名称
+    ${savePlanName}    Get Value    id=PlanName
+    [Return]    ${savePlanName}
+
+添加宣传品
+    Click Element    css=.Butout
+
+编辑宣传品
+    [Arguments]    ${a}    ${inta}    ${intb}    ${intc}    ${intd}
+    ${videoname1}    Get Text    id=PlanName
+    Input Text    xpath=//html/body/form/div/table[2]/tbody/tr[${a}]/td[3]/input    ${inta}    #宣传品名称
+    Input Text    xpath=//html/body/form/div/table[2]/tbody/tr[${a}]/td[4]/input    ${intb}    #宣传品品单位
+    Input Text    xpath=//html/body/form/div/table[2]/tbody/tr[${a}]/td[5]/input    ${intc}    #总数
+    Input Text    xpath=//html/body/form/div/table[2]/tbody/tr[${a}]/td[6]/input    ${intd}    #影院最大分配数
+    [Return]    ${videoname1}
+
+票房统计时间
+    [Arguments]    ${txt_StartOpenDate}    ${txt_EndOpenDate}
+    Execute Javascript    document.getElementById('txt_StartOpenDate').removeAttribute("readonly")
+    Execute Javascript    document.getElementById('txt_StartOpenDate').value='${txt_StartOpenDate}'
+    Execute Javascript    document.getElementById('txt_EndOpenDate').removeAttribute("readonly")
+    Execute Javascript    document.getElementById('txt_EndOpenDate').value='${txt_EndOpenDate}'
+
+删除宣传品
+    [Arguments]    ${a}
+    Click Element    xpath=//html/body/form/div/table[2]/tbody/tr[${a}]/td[1]/button
+
+勾选起分
+    [Arguments]    ${a}
+    Click Element    xpath=//html/body/form/div/table[2]/tbody/tr[${a}]/td[7]/input
+
+使用发行区域内的影院
+    Click Element    id=r_Select_Section    #关联区域，密钥一般为全国
+
+保存分配方案
+    Click Element    id=btnSave
+
+弹出框确认保存
+    Confirm Action
+
+发行区域选择
+    Click Element    xpath=//html/body/form/table[4]/tbody/tr[4]/td/input[2]
+
+发行区域选择方式
+    [Arguments]    ${selection}
+    Click Element    id=${selection}    #选地区Radio1，选择院线Radio2，地区与院线合并：rad_Cinemas1，地区与院线共有：id=rad_Cinemas2
+
+院线输入
+    [Arguments]    ${playarea}
+    Click Element    xpath=//html/body/form/table[4]/tbody/tr[7]/td/a    #选择院线
+    Sleep    2
+    Mouse Click    LEFT    1000    220    1
+    Sleep    1
+    Send    ${playarea}
+    Sleep    1
+    Mouse Click    LEFT    1170    220    1
+    Sleep    1
+    Mouse Click    LEFT    703    315    1
+    Mouse Click    LEFT    1150    250    1
+
+影院输入
+    [Arguments]    ${yingyuan}
+    Click Element    xpath=//html/body/form/table[4]/tbody/tr[8]/td/a    #选择影院
+    Sleep    2
+    Mouse Click    LEFT    1000    220    1
+    Sleep    1
+    Send    ${yingyuan}    #影院
+    Sleep    1
+    Mouse Click    LEFT    1170    220    1
+    Sleep    1
+    Mouse Click    LEFT    703    315    1
+    Mouse Click    LEFT    1150    250    1
+
+地区输入
+    [Arguments]    ${postion}
+    Click Element    xpath=//html/body/form/table[4]/tbody/tr[6]/td/a    #选择地区
+    Mouse Click    LEFT    703    ${postion}    1    #北京316天津347河南780
+    Mouse Click    LEFT    1150    250    1
+
+影院分配数值
+    [Arguments]    ${yingyuannum}
+    Input Text    xpath=//input[contains(@id,'${yingyuannum}' )]    2    #11059301北京嘉裕金逸国际电影城有限公司朝阳分公司
+
+刷新
+    Click Element    xpath=//html/body/form/table[1]/tbody/tr/td[2]/input    #刷新按钮
+
+点击影院分配结果
+    Wait Until Element Is Visible    xpath=.//span[text()='影院分配结果']
+    Click Element    xpath=.//span[text()='影院分配结果']
+
+点击院线分配结果
+    Wait Until Element Is Visible    xpath=.//span[text()='院线分配结果']
+    Click Element    xpath=.//span[text()='院线分配结果']
+    sleep    2
+
+点击提交审核
+    Wait Until Element Is Visible    xpath=.//span[text()='影院分配结果']
+    Click Element    xpath=.//span[text()='影院分配结果']
+    Wait Until Element Is Visible    id=btnAuditT
+    Click Element    id=btnAuditT
+
+院线代表点击宣传品方案
+    Wait Until Element Is Visible    id=Span6
+    Click Element    id=Span6
+    sleep    3
+    Select Frame    id=Desktop
+    sleep    3
+
+院线代表进入具体宣传品方案
+    Click Element    xpath=//html/body/form/table[3]/tbody/tr[2]/td[2]/a
+
+选择院线
+    [Arguments]    ${GrpNameSel}
+    Select From List By Value    name=GrpNameSel    ${GrpNameSel}
+
+点击影院分配结果查询
+    Wait Until Element Is Visible    id=btnSearch
+    Click Element    id=btnSearch

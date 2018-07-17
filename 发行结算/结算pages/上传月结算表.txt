@@ -1,0 +1,29 @@
+*** Settings ***
+Library           Selenium2Library
+Library           AutoItLibrary
+
+*** Keywords ***
+上传文件
+    [Arguments]    ${file1}
+    Wait Until Element Is Visible    id=upFile
+    Choose File    id=upFile    ${file1}
+
+点击确定
+    Click Element    css=.btn_action
+
+确认
+    Confirm Action
+
+点击后退
+    Wait Until Element Is Visible    xpath=.//a[text()='后退']
+    Click Element    xpath=.//a[text()='后退']
+
+获取提示信息
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    [Return]    ${text}
+
+选择结算年月
+    [Arguments]    ${feeYMStr}
+    Wait Until Element Is Visible    id=feeYMStr
+    Execute Javascript    document.getElementById('feeYMStr').removeAttribute("disabled")
+    Execute Javascript    document.getElementById('feeYMStr').value='${feeYMStr}'

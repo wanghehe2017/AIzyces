@@ -1,0 +1,11 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Keywords ***
+点击影片发行
+    Wait Until Element Is Visible    xpath=.//a[text()='影片发行']
+    Click Element    xpath=.//a[text()='影片发行']
+
+点击国产影片
+    Wait Until Element Is Visible    id=A0301
+    Click Element    id=A0301

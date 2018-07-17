@@ -1,0 +1,25 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          业务流程.txt
+
+*** Test Cases ***
+case1
+    打开浏览器
+    搜索iframe进入
+    影院名称输入
+    影院地址省选择
+    影院地址由省级联出市
+    时间输入
+    排期查询按钮
+    等待3秒
+    显示的影院
+
+case2
+    打开浏览器
+    Go To    http://10.1.31.131:8080/asSchMonitor.do?adSchMonitorDetailList&cinemaCode=32014401&validCheckDate=2018-04-17&vrId=
+    left影院名称输入
+    left广告商选择
+    left搜索按钮
+    left点击影城名称
+
+*** Keywords ***

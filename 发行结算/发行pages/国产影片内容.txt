@@ -1,0 +1,25 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Keywords ***
+影片查询
+    [Arguments]    ${mySearch}
+    Select Frame    id=Desktop
+    Input Text    id=mySearch    ${mySearch}
+    Wait Until Element Is Visible    css=.colorbotton
+    Click Element    css=.colorbotton
+    ${videoname}    Get Text    xpath=//html/body/form/table[3]/tbody/tr/td/table/tbody/tr[3]/td[4]/a
+    [Return]    ${videoname}
+
+进入发行
+    [Arguments]    ${label}
+    Wait Until Element Is Visible    xpath=//html/body/form/table[3]/tbody/tr/td/table/tbody/tr[3]/td[1]/button[${label}]
+    Click Button    xpath=//html/body/form/table[3]/tbody/tr/td/table/tbody/tr[3]/td[1]/button[${label}]
+
+点击宣传品分配方案
+    Wait Until Element Is Visible    xpath=//html/body/form/table[5]/tbody/tr[1]/td[1]/table/tbody/tr[1]/td/div[3]/a/ul/li[1]
+    Click Element    xpath=//html/body/form/table[5]/tbody/tr[1]/td[1]/table/tbody/tr[1]/td/div[3]/a/ul/li[1]    #流程中的方块
+
+点击宣传品发运表
+    Wait Until Element Is Visible    xpath=//html/body/form/table[5]/tbody/tr[1]/td[1]/table/tbody/tr[3]/td/div[3]/a/ul/li[1]
+    Click Element    xpath=//html/body/form/table[5]/tbody/tr[1]/td[1]/table/tbody/tr[3]/td/div[3]/a/ul/li[1]    #流程中的方块

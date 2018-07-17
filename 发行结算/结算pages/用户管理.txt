@@ -1,0 +1,14 @@
+*** Settings ***
+Library           Selenium2Library
+Library           AutoItLibrary
+
+*** Keywords ***
+用户查找
+    [Arguments]    ${userid}
+    Wait Until Element Is Visible    id=searchform_filter_LIKES_username
+    Input Text    id=searchform_filter_LIKES_username    ${userid}
+
+获取用户身份
+    sleep    2
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[6]
+    [Return]    ${text}

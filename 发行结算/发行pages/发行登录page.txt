@@ -1,0 +1,36 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Keywords ***
+登录
+    [Arguments]    ${username}
+    Open Browser    http://218.246.120.154/    ie
+    Maximize Browser Window
+    sleep    2
+    Input Text    id=username    ${username}
+    Input Text    id=password    hy
+    Click Button    name=yes
+    Sleep    5
+
+注销
+    Unselect Frame
+    sleep    2
+    Click Element    xpath=.//a[text()='注销']    #注销按钮,因为xpath不固定，用注销两字保险
+    sleep    2
+
+关闭浏览器
+    Close Browser
+
+返回
+    [Arguments]    ${inta}
+    Click Element    xpath=//html/body/form/table[1]/tbody/tr/td[${inta}]/input    #注返回按钮,因为xpath不固定，2是发运表节目，3院线界面，5是管理（院线责任管理/院线代表影院分配），6是影院
+    sleep    2
+
+一次确认
+    Confirm Action
+
+两次确认
+    Confirm Action
+    sleep    5
+    Confirm Action
+    sleep    5

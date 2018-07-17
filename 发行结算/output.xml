@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180717 09:04:19.550" generator="Robot 3.0.3 (Python 2.7.14 on win32)">
+<suite source="G:\AIzyces\发行结算\1_发行结算上传.txt" id="s1" name="1 发行结算上传">
+<test id="s1-t1" name="b1管理员权限">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh5</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:04:36.926" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:05:43.461" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" endtime="20180717 09:05:43.462" starttime="20180717 09:05:43.461"></status>
+</kw>
+<msg timestamp="20180717 09:05:44.671" level="FAIL">WebDriverException: Message: unknown error: Chrome failed to start: crashed
+  (Driver info: chromedriver=2.37.544315 (730aa6a5fdba159ac9f4c1e8cbc59bf1b5ce12b7),platform=Windows NT 10.0.16299 x86_64)
+</msg>
+<status status="FAIL" endtime="20180717 09:05:44.672" starttime="20180717 09:04:36.926"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:05:44.672" starttime="20180717 09:04:36.926"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:05:44.673" starttime="20180717 09:05:44.672"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:05:44.673" critical="yes" starttime="20180717 09:04:36.926">WebDriverException: Message: unknown error: Chrome failed to start: crashed
+  (Driver info: chromedriver=2.37.544315 (730aa6a5fdba159ac9f4c1e8cbc59bf1b5ce12b7),platform=Windows NT 10.0.16299 x86_64)
+</status>
+</test>
+<test id="s1-t2" name="报数单位统计结算审核页权限">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh1</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:05:44.675" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:06:32.041" starttime="20180717 09:05:44.675"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:06:33.186" starttime="20180717 09:06:32.042"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:06:33.186" level="INFO">Typing text 'wh1' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:06:34.210" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:06:34.210" starttime="20180717 09:06:33.768"></status>
+</kw>
+<msg timestamp="20180717 09:06:34.363" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:06:34.364" starttime="20180717 09:06:33.186"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:06:34.364" starttime="20180717 09:05:44.674"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:06:37.412" starttime="20180717 09:06:34.365"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:06:37.412" critical="yes" starttime="20180717 09:05:44.673">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t3" name="报数单位财务结算审核页权限">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh2</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:06:37.420" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:06:46.782" starttime="20180717 09:06:37.419"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:06:47.908" starttime="20180717 09:06:46.783"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:06:47.909" level="INFO">Typing text 'wh2' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:06:48.209" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:06:48.209" starttime="20180717 09:06:47.926"></status>
+</kw>
+<msg timestamp="20180717 09:06:48.211" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:06:48.211" starttime="20180717 09:06:47.909"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:06:48.211" starttime="20180717 09:06:37.418"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:06:51.318" starttime="20180717 09:06:48.212"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:06:51.318" critical="yes" starttime="20180717 09:06:37.413">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t4" name="中影单位统计结算审核页权限">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh3</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:06:51.326" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:07:00.296" starttime="20180717 09:06:51.325"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:07:01.447" starttime="20180717 09:07:00.296"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:07:01.448" level="INFO">Typing text 'wh3' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:07:01.778" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:07:01.778" starttime="20180717 09:07:01.466"></status>
+</kw>
+<msg timestamp="20180717 09:07:01.780" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:07:01.780" starttime="20180717 09:07:01.448"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:07:01.780" starttime="20180717 09:06:51.324"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:07:04.814" starttime="20180717 09:07:01.781"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:07:04.814" critical="yes" starttime="20180717 09:06:51.319">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t5" name="中影单位财务结算审核页权限">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh5</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:07:04.817" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:07:40.899" starttime="20180717 09:07:04.817"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:07:42.030" starttime="20180717 09:07:40.899"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:07:42.030" level="INFO">Typing text 'wh5' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:07:42.294" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:07:42.294" starttime="20180717 09:07:42.046"></status>
+</kw>
+<msg timestamp="20180717 09:07:42.296" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:07:42.296" starttime="20180717 09:07:42.030"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:07:42.296" starttime="20180717 09:07:04.816"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:07:45.355" starttime="20180717 09:07:42.297"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:07:45.355" critical="yes" starttime="20180717 09:07:04.814">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t6" name="验证不同身份邮箱是否有">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh1</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:07:45.355" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:08:13.182" starttime="20180717 09:07:45.355"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:08:14.324" starttime="20180717 09:08:13.183"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:08:14.324" level="INFO">Typing text 'wh1' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:08:14.558" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:08:14.558" starttime="20180717 09:08:14.339"></status>
+</kw>
+<msg timestamp="20180717 09:08:14.560" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:08:14.560" starttime="20180717 09:08:14.324"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:14.560" starttime="20180717 09:07:45.355"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:08:17.599" starttime="20180717 09:08:14.561"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:17.599" critical="yes" starttime="20180717 09:07:45.355">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t7" name="b登录验证">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh1</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:08:17.599" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:08:22.896" starttime="20180717 09:08:17.599"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:08:24.019" starttime="20180717 09:08:22.896"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:08:24.019" level="INFO">Typing text 'wh1' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:08:24.842" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:08:24.843" starttime="20180717 09:08:24.575"></status>
+</kw>
+<msg timestamp="20180717 09:08:24.844" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:08:24.844" starttime="20180717 09:08:24.019"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:24.844" starttime="20180717 09:08:17.599"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:08:27.875" starttime="20180717 09:08:24.844"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:27.875" critical="yes" starttime="20180717 09:08:17.599">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t8" name="影院编码不一致提示">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:08:27.875" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:08:33.160" starttime="20180717 09:08:27.875"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:08:34.306" starttime="20180717 09:08:33.160"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:08:34.306" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:08:34.544" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:08:34.544" starttime="20180717 09:08:34.322"></status>
+</kw>
+<msg timestamp="20180717 09:08:34.545" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:08:34.545" starttime="20180717 09:08:34.306"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:34.546" starttime="20180717 09:08:27.875"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:08:37.568" starttime="20180717 09:08:34.546"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:37.568" critical="yes" starttime="20180717 09:08:27.875">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t9" name="多sheet提示">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:08:37.568" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:08:43.996" starttime="20180717 09:08:37.568"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:08:45.140" starttime="20180717 09:08:43.996"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:08:45.140" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:08:45.391" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:08:45.391" starttime="20180717 09:08:45.155"></status>
+</kw>
+<msg timestamp="20180717 09:08:45.393" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:08:45.393" starttime="20180717 09:08:45.140"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:45.393" starttime="20180717 09:08:37.568"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:08:48.440" starttime="20180717 09:08:45.393"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:48.440" critical="yes" starttime="20180717 09:08:37.568">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t10" name="标题错误提示">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:08:48.440" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:08:53.796" starttime="20180717 09:08:48.440"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:08:54.918" starttime="20180717 09:08:53.797"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:08:54.918" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:08:55.758" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:08:55.758" starttime="20180717 09:08:55.510"></status>
+</kw>
+<msg timestamp="20180717 09:08:55.759" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:08:55.760" starttime="20180717 09:08:54.918"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:55.760" starttime="20180717 09:08:48.440"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:08:58.783" starttime="20180717 09:08:55.760"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:08:58.783" critical="yes" starttime="20180717 09:08:48.440">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t11" name="数据中空行提示">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:08:58.783" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:09:07.466" starttime="20180717 09:08:58.783"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:09:08.622" starttime="20180717 09:09:07.466"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:09:08.622" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:09:08.859" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:09:08.859" starttime="20180717 09:09:08.637"></status>
+</kw>
+<msg timestamp="20180717 09:09:08.861" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:09:08.861" starttime="20180717 09:09:08.622"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:08.861" starttime="20180717 09:08:58.783"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:09:11.915" starttime="20180717 09:09:08.861"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:11.915" critical="yes" starttime="20180717 09:08:58.783">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t12" name="数据中合计下空行提示">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:09:11.915" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:09:17.198" starttime="20180717 09:09:11.915"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:09:18.320" starttime="20180717 09:09:17.199"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:09:18.320" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:09:18.974" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:09:18.974" starttime="20180717 09:09:18.715"></status>
+</kw>
+<msg timestamp="20180717 09:09:18.975" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:09:18.975" starttime="20180717 09:09:18.320"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:18.975" starttime="20180717 09:09:11.915"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:09:22.022" starttime="20180717 09:09:18.975"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:22.022" critical="yes" starttime="20180717 09:09:11.915">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t13" name="合计字错误">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:09:22.022" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:09:27.657" starttime="20180717 09:09:22.022"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:09:28.788" starttime="20180717 09:09:27.657"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:09:28.788" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:09:29.039" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:09:29.039" starttime="20180717 09:09:28.804"></status>
+</kw>
+<msg timestamp="20180717 09:09:29.041" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:09:29.041" starttime="20180717 09:09:28.788"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:29.041" starttime="20180717 09:09:22.022"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:09:32.088" starttime="20180717 09:09:29.041"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:32.088" critical="yes" starttime="20180717 09:09:22.022">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t14" name="合计字缺少">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:09:32.088" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:09:37.160" starttime="20180717 09:09:32.088"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:09:38.281" starttime="20180717 09:09:37.160"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:09:38.281" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:09:39.377" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:09:39.377" starttime="20180717 09:09:39.145"></status>
+</kw>
+<msg timestamp="20180717 09:09:39.379" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:09:39.379" starttime="20180717 09:09:38.281"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:39.379" starttime="20180717 09:09:32.088"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:09:42.402" starttime="20180717 09:09:39.379"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:42.402" critical="yes" starttime="20180717 09:09:32.088">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t15" name="数据类型错误">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:09:42.402" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:09:49.497" starttime="20180717 09:09:42.402"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:09:50.637" starttime="20180717 09:09:49.497"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:09:50.637" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:09:50.887" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:09:50.887" starttime="20180717 09:09:50.653"></status>
+</kw>
+<msg timestamp="20180717 09:09:50.889" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:09:50.889" starttime="20180717 09:09:50.637"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:50.889" starttime="20180717 09:09:42.402"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:09:53.927" starttime="20180717 09:09:50.889"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:09:53.927" critical="yes" starttime="20180717 09:09:42.402">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t16" name="缺少标题">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:09:53.927" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:09:59.673" starttime="20180717 09:09:53.927"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:10:00.796" starttime="20180717 09:09:59.673"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:10:00.796" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:10:01.074" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:10:01.074" starttime="20180717 09:10:00.821"></status>
+</kw>
+<msg timestamp="20180717 09:10:01.076" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:10:01.076" starttime="20180717 09:10:00.796"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:01.076" starttime="20180717 09:09:53.927"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:10:04.114" starttime="20180717 09:10:01.077"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:04.114" critical="yes" starttime="20180717 09:09:53.927">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t17" name="上传其他类型">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:10:04.114" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:10:10.275" starttime="20180717 09:10:04.114"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:10:11.410" starttime="20180717 09:10:10.275"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:10:11.410" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:10:12.977" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:10:12.977" starttime="20180717 09:10:12.705"></status>
+</kw>
+<msg timestamp="20180717 09:10:12.979" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:10:12.979" starttime="20180717 09:10:11.410"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:12.979" starttime="20180717 09:10:04.114"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:10:16.002" starttime="20180717 09:10:12.979"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:16.002" critical="yes" starttime="20180717 09:10:04.114">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t18" name="上传文件结算单位查询">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh5</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:10:16.002" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:10:23.876" starttime="20180717 09:10:16.002"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:10:25.019" starttime="20180717 09:10:23.876"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:10:25.019" level="INFO">Typing text 'wh5' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:10:25.281" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:10:25.281" starttime="20180717 09:10:25.034"></status>
+</kw>
+<msg timestamp="20180717 09:10:25.283" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:10:25.283" starttime="20180717 09:10:25.019"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:25.283" starttime="20180717 09:10:16.002"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:10:28.337" starttime="20180717 09:10:25.284"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:28.337" critical="yes" starttime="20180717 09:10:16.002">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t19" name="上传文件专资编码查询">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh5</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:10:28.337" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:10:33.877" starttime="20180717 09:10:28.337"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:10:35.001" starttime="20180717 09:10:33.877"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:10:35.001" level="INFO">Typing text 'wh5' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:10:35.270" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:10:35.270" starttime="20180717 09:10:35.035"></status>
+</kw>
+<msg timestamp="20180717 09:10:35.272" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:10:35.272" starttime="20180717 09:10:35.001"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:35.272" starttime="20180717 09:10:28.337"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:10:38.294" starttime="20180717 09:10:35.272"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:38.294" critical="yes" starttime="20180717 09:10:28.337">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t20" name="上传文件审核状态">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh5</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:10:38.294" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:10:44.560" starttime="20180717 09:10:38.294"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:10:45.685" starttime="20180717 09:10:44.560"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:10:45.685" level="INFO">Typing text 'wh5' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:10:46.504" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:10:46.504" starttime="20180717 09:10:46.237"></status>
+</kw>
+<msg timestamp="20180717 09:10:46.504" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:10:46.504" starttime="20180717 09:10:45.685"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:46.504" starttime="20180717 09:10:38.294"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:10:49.552" starttime="20180717 09:10:46.504"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:49.552" critical="yes" starttime="20180717 09:10:38.294">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t21" name="上传文件上传状态">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh5</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:10:49.552" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:10:55.626" starttime="20180717 09:10:49.552"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:10:56.748" starttime="20180717 09:10:55.627"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:10:56.748" level="INFO">Typing text 'wh5' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:10:57.069" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:10:57.069" starttime="20180717 09:10:56.831"></status>
+</kw>
+<msg timestamp="20180717 09:10:57.071" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:10:57.071" starttime="20180717 09:10:56.748"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:10:57.071" starttime="20180717 09:10:49.552"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:11:00.110" starttime="20180717 09:10:57.072"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:00.110" critical="yes" starttime="20180717 09:10:49.552">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t22" name="上传文件是否为新增结算单位">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh5</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:11:00.110" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:11:06.551" starttime="20180717 09:11:00.110"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:11:07.671" starttime="20180717 09:11:06.551"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:11:07.672" level="INFO">Typing text 'wh5' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:11:07.988" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:11:07.988" starttime="20180717 09:11:07.750"></status>
+</kw>
+<msg timestamp="20180717 09:11:07.990" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:11:07.990" starttime="20180717 09:11:07.672"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:07.990" starttime="20180717 09:11:00.110"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:11:11.029" starttime="20180717 09:11:07.991"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:11.029" critical="yes" starttime="20180717 09:11:00.110">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t23" name="上传文件分账比例是否一致">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:11:11.029" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:11:17.097" starttime="20180717 09:11:11.029"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:11:18.218" starttime="20180717 09:11:17.097"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:11:18.219" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:11:18.634" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:11:18.634" starttime="20180717 09:11:18.390"></status>
+</kw>
+<msg timestamp="20180717 09:11:18.636" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:11:18.636" starttime="20180717 09:11:18.218"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:18.636" starttime="20180717 09:11:11.029"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:11:21.704" starttime="20180717 09:11:18.636"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:21.704" critical="yes" starttime="20180717 09:11:11.029">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t24" name="上传文件结算方式">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:11:21.704" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:11:27.888" starttime="20180717 09:11:21.704"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:11:29.012" starttime="20180717 09:11:27.888"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:11:29.012" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:11:30.386" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-23.png"&gt;&lt;img src="selenium-screenshot-23.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:11:30.386" starttime="20180717 09:11:30.118"></status>
+</kw>
+<msg timestamp="20180717 09:11:30.386" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:11:30.386" starttime="20180717 09:11:29.012"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:30.386" starttime="20180717 09:11:21.704"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:11:33.464" starttime="20180717 09:11:30.386"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:33.464" critical="yes" starttime="20180717 09:11:21.704">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t25" name="上传文件结算年月">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh4</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:11:33.464" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:11:41.575" starttime="20180717 09:11:33.464"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:11:42.716" starttime="20180717 09:11:41.575"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:11:42.716" level="INFO">Typing text 'wh4' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:11:42.950" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-24.png"&gt;&lt;img src="selenium-screenshot-24.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:11:42.950" starttime="20180717 09:11:42.732"></status>
+</kw>
+<msg timestamp="20180717 09:11:42.952" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:11:42.952" starttime="20180717 09:11:42.716"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:42.952" starttime="20180717 09:11:33.464"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:11:45.989" starttime="20180717 09:11:42.953"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:45.989" critical="yes" starttime="20180717 09:11:33.464">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t26" name="上传计算审核导出ERP驳回流程">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh1</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:11:45.989" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:11:53.654" starttime="20180717 09:11:45.989"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:11:54.777" starttime="20180717 09:11:53.654"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:11:54.777" level="INFO">Typing text 'wh1' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:11:56.044" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-25.png"&gt;&lt;img src="selenium-screenshot-25.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:11:56.045" starttime="20180717 09:11:55.811"></status>
+</kw>
+<msg timestamp="20180717 09:11:56.046" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:11:56.046" starttime="20180717 09:11:54.777"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:56.047" starttime="20180717 09:11:45.989"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:11:59.083" starttime="20180717 09:11:56.047"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:11:59.083" critical="yes" starttime="20180717 09:11:45.989">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t27" name="上传计算审核下载盖章件驳回流程">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh1</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:11:59.083" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:12:06.947" starttime="20180717 09:11:59.083"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:12:08.066" starttime="20180717 09:12:06.947"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:12:08.066" level="INFO">Typing text 'wh1' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:12:08.299" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:12:08.299" starttime="20180717 09:12:08.081"></status>
+</kw>
+<msg timestamp="20180717 09:12:08.301" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:12:08.302" starttime="20180717 09:12:08.066"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:08.302" starttime="20180717 09:11:59.083"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:12:11.339" starttime="20180717 09:12:08.302"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:11.339" critical="yes" starttime="20180717 09:11:59.083">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t28" name="b上传盖章文件验证">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh1</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:12:11.339" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:12:19.190" starttime="20180717 09:12:11.339"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:12:20.331" starttime="20180717 09:12:19.190"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:12:20.331" level="INFO">Typing text 'wh1' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:12:20.583" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-27.png"&gt;&lt;img src="selenium-screenshot-27.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:12:20.584" starttime="20180717 09:12:20.346"></status>
+</kw>
+<msg timestamp="20180717 09:12:20.584" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:12:20.584" starttime="20180717 09:12:20.331"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:20.584" starttime="20180717 09:12:11.339"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:12:23.616" starttime="20180717 09:12:20.584"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:23.616" critical="yes" starttime="20180717 09:12:11.339">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t29" name="b上传审核通过并驳回">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh1</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:12:23.616" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:12:29.413" starttime="20180717 09:12:23.616"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:12:30.535" starttime="20180717 09:12:29.413"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:12:30.535" level="INFO">Typing text 'wh1' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:12:31.887" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-28.png"&gt;&lt;img src="selenium-screenshot-28.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:12:31.887" starttime="20180717 09:12:31.661"></status>
+</kw>
+<msg timestamp="20180717 09:12:31.889" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:12:31.889" starttime="20180717 09:12:30.535"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:31.889" starttime="20180717 09:12:23.616"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:12:34.927" starttime="20180717 09:12:31.889"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:34.927" critical="yes" starttime="20180717 09:12:23.616">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t30" name="b审核中无法上传">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh1</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:12:34.927" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:12:40.421" starttime="20180717 09:12:34.927"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:12:41.543" starttime="20180717 09:12:40.421"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:12:41.543" level="INFO">Typing text 'wh1' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:12:42.989" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-29.png"&gt;&lt;img src="selenium-screenshot-29.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:12:42.989" starttime="20180717 09:12:42.761"></status>
+</kw>
+<msg timestamp="20180717 09:12:42.991" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:12:42.991" starttime="20180717 09:12:41.543"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:42.991" starttime="20180717 09:12:34.927"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:12:46.029" starttime="20180717 09:12:42.992"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:46.029" critical="yes" starttime="20180717 09:12:34.927">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t31" name="b上传盖章文件">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>wh1</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:12:46.029" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:12:52.160" starttime="20180717 09:12:46.029"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:12:53.281" starttime="20180717 09:12:52.160"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:12:53.281" level="INFO">Typing text 'wh1' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:12:54.450" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-30.png"&gt;&lt;img src="selenium-screenshot-30.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:12:54.450" starttime="20180717 09:12:54.199"></status>
+</kw>
+<msg timestamp="20180717 09:12:54.452" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:12:54.452" starttime="20180717 09:12:53.281"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:54.452" starttime="20180717 09:12:46.029"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20180717 09:12:57.490" starttime="20180717 09:12:54.452"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:12:57.490" critical="yes" starttime="20180717 09:12:46.029">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-t32" name="test1">
+<kw name="登录" library="登录page">
+<arguments>
+<arg>50020091</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://124.207.105.120:8090/jspt/index.action</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180717 09:12:57.490" level="INFO">Opening browser 'chrome' to base url 'http://124.207.105.120:8090/jspt/index.action'.</msg>
+<status status="PASS" endtime="20180717 09:13:04.199" starttime="20180717 09:12:57.490"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180717 09:13:05.323" starttime="20180717 09:13:04.199"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180717 09:13:05.325" level="INFO">Typing text '50020091' into text field 'id=username'.</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180717 09:13:06.215" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-31.png"&gt;&lt;img src="selenium-screenshot-31.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180717 09:13:06.215" starttime="20180717 09:13:05.955"></status>
+</kw>
+<msg timestamp="20180717 09:13:06.215" level="FAIL">Element with locator 'id=username' not found.</msg>
+<status status="FAIL" endtime="20180717 09:13:06.215" starttime="20180717 09:13:05.324"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:13:06.215" starttime="20180717 09:12:57.490"></status>
+</kw>
+<status status="FAIL" endtime="20180717 09:13:06.215" critical="yes" starttime="20180717 09:12:57.490">Element with locator 'id=username' not found.</status>
+</test>
+<status status="FAIL" endtime="20180717 09:13:06.215" starttime="20180717 09:04:19.815"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="32" pass="0">Critical Tests</stat>
+<stat fail="32" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="32" id="s1" name="1 发行结算上传" pass="0">1 发行结算上传</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

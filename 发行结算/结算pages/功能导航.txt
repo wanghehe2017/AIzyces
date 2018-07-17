@@ -1,0 +1,36 @@
+*** Settings ***
+Library           Selenium2Library
+Library           AutoItLibrary
+
+*** Keywords ***
+点击结算业务
+    Wait Until Element Is Visible    xpath=.//span[text()='结算业务']
+    Click Element    xpath=.//span[text()='结算业务']
+
+点击系统日志
+    Wait Until Element Is Visible    xpath=.//span[text()='系统日志']
+    Click Element    xpath=.//span[text()='系统日志']
+
+点击附件管理-月计算附件
+    Wait Until Element Is Visible    xpath=.//span[text()='附件管理-月结算上传附件']
+    Click Element    xpath=.//span[text()='附件管理-月结算上传附件']
+
+点击上传结算表
+    Wait Until Element Is Visible    xpath=.//span[text()='上传月结算表']
+    Click Element    xpath=.//span[text()='上传月结算表']
+
+点击上传结算盖章件
+    Wait Until Element Is Visible    xpath=.//span[text()='上传结算盖章件']
+    Click Element    xpath=.//span[text()='上传结算盖章件']
+
+点击权限管理
+    Wait Until Element Is Visible    xpath=//span[text()='权限管理']
+    Click Element    xpath=//span[text()='权限管理']
+
+点击用户管理
+    Wait Until Element Is Visible    xpath=//span[text()='用户管理']
+    Click Element    xpath=//span[text()='用户管理']
+
+点击结算数据审核
+    Wait Until Element Is Visible    xpath=//span[text()='结算数据审核']
+    Click Element    xpath=//span[text()='结算数据审核']

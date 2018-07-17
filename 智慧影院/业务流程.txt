@@ -1,0 +1,50 @@
+*** Keywords ***
+打开浏览器
+    Open Browser    http://10.1.31.131:8080    chrome
+    Maximize Browser Window
+    Input Text    id=userName    admin
+    Input Text    id=password    123456
+    Click Button    id=but_login
+    Sleep    5
+
+影院名称输入
+    Input Text    id=cinemaNameCn    西安幸福蓝海影城
+
+搜索iframe进入
+    Select Frame    Xpath=//*[contains(@src, 'asSchMonitor.do?adSchMonitorCinemaList')]
+
+影院地址省选择
+    Select From List    id=province    陕西
+
+影院地址由省级联出市
+    Select From List    id=city    西安
+
+时间输入
+    Execute Javascript    document.getElementById('validCheckDate').removeAttribute("readonly")
+    Execute Javascript    document.getElementById('validCheckDate').value='2018-04-17'
+
+排期查询按钮
+    Click Element    id=search
+
+排期重置按钮
+    Click Element    id=reset
+
+等待3秒
+    sleep    3
+
+显示的影院
+    Click Element    Xpath= //div[@data-cinemacode="61010701"]
+
+left影院名称输入
+    Input Text    id=cinemaNameCn    中影国际影城
+
+left搜索按钮
+    Click Button    css=.btn.btn-flat
+
+left广告商选择
+    Select From List    id=holders    分众晶视
+
+left点击影城名称
+    Get Element Attribute    Xpath = //[@data-cinemanamecn=中影国际影城（南京大光路店）]
+
+元素属性值

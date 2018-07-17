@@ -1,0 +1,110 @@
+*** Settings ***
+Resource          发行pages/发行登录page.txt
+Resource          发行pages/发行功能导航.txt
+Resource          发行pages/发运表管理.txt
+Resource          发行pages/国产影片内容.txt
+Resource          发行pages/宣传品管理.txt
+
+*** Keywords ***
+影片责任创建影片并提交审核
+    [Arguments]    ${inputplanname}
+    登录    cs
+    点击影片发行
+    点击国产影片
+    ${videoname}    影片查询    河间圣手
+    Sleep    3
+    进入发行    3
+    点击宣传品分配方案
+    新建分配方案
+    ${planname}    输入分配方案名称    ${videoname}${inputplanname}
+    添加宣传品
+    编辑宣传品    2    ${planname}    个    5    1
+    发行区域选择
+    Sleep    2
+    发行区域选择方式    Radio2
+    院线输入    金逸
+    保存分配方案
+    弹出框确认保存
+    sleep    1
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    生成中
+    Should Be Equal    ${Reviewprogressl}    0/0 院线 已审核通过
+    [Return]    ${planname}
+
+院线责任人审核
+    [Arguments]    ${planname}
+    登录    zxy    #院线责任人登录
+    点击影片发行
+    点击国产影片
+    影片查询    河间圣手
+    Sleep    3
+    进入发行    2
+    点击宣传品分配方案
+    进入具体宣传品方案    ${planname}
+    sleep    2
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    点击影院分配结果
+    点击提交审核
+    两次确认
+    点击院线分配结果
+    ${sumRealCount}    Get Element Attribute    xpath=//input[contains(@id,'sumRealCount')]@value
+    Should Be Equal    ${sumRealCount}    5
+    sleep    1
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    008000    #验证院线责任人的颜绿色状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[4]/td[5]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    sleep    2
+
+院线代表提交审核
+    登录    jyzj1    #院线责任人登录
+    点击影片发行
+    院线代表点击宣传品方案
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核中
+    院线代表进入具体宣传品方案
+    点击提交审核
+    两次确认
+    sleep    2
+    返回    5
+    sleep    2
+    ${auditstatusl1}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    Should Be Equal    ${auditstatusl1}    审核通过
+    sleep    2
+
+保存后提交审核
+    [Arguments]    ${planname}
+    sleep    20
+    刷新
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #生成中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/1 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    未审核
+    Should Be Equal    ${Reviewprogressl}    0/1 院线 已审核通过
+    sleep    1
+    进入具体宣传品方案    ${planname}
+    点击提交审核
+    sleep    2
+    ${color}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[1]/font@color    #影片责任人的颜色状态
+    ${color1}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[3]/font@color    #院线责任人的颜色状态
+    ${color2}    Get Element Attribute    xpath=//html/body/form/table[3]/tbody/tr[4]/td[4]/p[1]/span[5]/font@color    #院线代表的颜色状态
+    Should Contain    ${color}    008000    #验证影片责任人的颜色绿状态
+    Should Contain    ${color1}    ff0000    #验证院线责任人的颜色红状态
+    Should Contain    ${color2}    ff0000    #验证院线代表的颜色红状态
+    sleep    2
+    返回    3
+    ${auditstatusl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[4]    #审核中
+    ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
+    Should Be Equal    ${auditstatusl}    审核中
+    Should Be Equal    ${Reviewprogressl}    0/1 院线 已审核通过

@@ -1,0 +1,78 @@
+*** Keywords ***
+登录
+    [Arguments]    ${username}
+    Open Browser    http://218.246.120.154/    ie
+    Maximize Browser Window
+    sleep    2
+    Input Text    id=username    ${username}
+    Input Text    id=password    hy
+    Click Button    name=yes
+    Sleep    5
+
+硬盘管理
+    [Arguments]    ${leabl1}
+    Click Element    id=globalNavMainInner${leabl1}    #因为影片责任人和院线责任人    #04
+
+硬盘发运表
+    Wait Until Element Is Visible    id=A0407
+    Click Element    id=A0407    #硬盘发运表
+
+硬盘节目管理
+    Wait Until Element Is Visible    id=A0407
+    Click Element    id=A0407    #国产影片
+
+进入查询影院
+    [Arguments]    ${mySearch}    ${MyProvince}    ${Mycity}    ${selectOpenState}    ${selectDiskReceiverType}    ${txtStatus}
+    ...    ${Select1}    # 影院信息|省|市|营业状态|接受方式|快递类型|异常信息
+    Select Frame    id=Desktop
+    Input Text    id=mySearch    ${mySearch}    #查询内容，尽量影院名称
+    Wait Until Element Is Visible    id=MyProvince
+    Select From List    id=MyProvince    ${MyProvince}    #省
+    Wait Until Element Is Visible    id=Mycity
+    Select From List    id=Mycity    ${Mycity}    #市
+    Wait Until Element Is Visible    id=selectOpenState
+    Select From List    id=selectOpenState    ${selectOpenState}    #营业状态
+    Wait Until Element Is Visible    id=selectDiskReceiverType
+    Select From List    id=selectDiskReceiverType    ${selectDiskReceiverType}    #接受方式
+    Wait Until Element Is Visible    id=txtStatus
+    Select From List    id=txtStatus    ${txtStatus}    #快递类型
+    Wait Until Element Is Visible    id=Select1
+    Select From List    id=Select1    ${Select1}    #异常信息
+    Wait Until Element Is Visible    css=.colorbotton
+    Click Element    css=.colorbotton    #点击查询
+
+查询验证
+    [Arguments]    ${mySearch1}    ${MyProvince1}    ${Mycity1}    ${selectOpenState1}    ${selectDiskReceiverType1}    ${txtStatus1}
+    ${mySearch}    Get Text    xpath=/html/body/form/table[3]/tbody/tr/td/table/tbody/tr[2]/td[4]
+    Should Contain    ${mySearch}    ${mySearch1}
+    ${mySearch}    Get Text    xpath=/html/body/form/table[3]/tbody/tr/td/table/tbody/tr[2]/td[2]
+    Should Contain    ${mySearch}    ${MyProvince1}
+    ${mySearch}    Get Text    xpath=/html/body/form/table[3]/tbody/tr/td/table/tbody/tr[2]/td[3]
+    Should Contain    ${mySearch}    ${Mycity1}
+    ${mySearch}    Get Text    xpath=/html/body/form/table[3]/tbody/tr/td/table/tbody/tr[2]/td[6]
+    Should Contain    ${mySearch}    ${selectOpenState1}
+    ${mySearch}    Get Text    xpath=/html/body/form/table[3]/tbody/tr/td/table/tbody/tr[2]/td[7]
+    Should Contain    ${mySearch}    ${selectDiskReceiverType1}
+    ${mySearch}    Get Text    xpath=/html/body/form/table[3]/tbody/tr/td/table/tbody/tr[2]/td[12]
+    Should Contain    ${mySearch}    ${txtStatus1}
+
+关闭浏览器
+    Close Browser
+
+点击修改
+    Click Element    xpath=//html/body/form/table[3]/tbody/tr/td/table/tbody/tr[2]/td[1]/button    #点击修改
+
+修改硬盘发行数
+    [Arguments]    ${MPEG}    ${JPEG}    ${3D}
+    Input Text    id=txt_Number    ${MPEG}    #MPEG2数量
+    Input Text    id=txt_Number    ${JPEG}    #JPEG2000数量
+    Input Text    id=txt_Number    ${3D}    #3D数量
+
+点击确认保存
+    Click Element    xpath=//html/body/form/table[4]/tbody/tr/td/input[1]    #点击确认输入
+
+点击重新输入
+    Click Element    xpath=//html/body/form/table[4]/tbody/tr/td/input[2]    #点击重新输入
+
+返回上页
+    Click Element    xpath=//html/body/form/table[4]/tbody/tr/td/input[3]    #点击确认输入
