@@ -5,11 +5,11 @@ Library           AutoItLibrary
 
 *** Keywords ***
 登录
-    [Arguments]    ${username}
+    [Arguments]    ${username}    ${userpassword}
     Open Browser    http://124.207.105.120:8090/jspt/index.action    chrome
     Maximize Browser Window
     Input Text    id=username    ${username}
-    Input Text    id=userpassword    123456
+    Input Text    id=userpassword    ${userpassword}
     Click Element    id=login_img
     Sleep    3
 
@@ -23,17 +23,13 @@ Library           AutoItLibrary
     Click Element    css=.btn_search2
 
 进入上传页面ifarme
-    [Arguments]    ${mainFrame}
-    Select Frame    id=${mainFrame}    #mainFrame ，file_frame
+    Select Frame    id=mainFrame    #mainFrame ，file_frame
 
 退出iframe
     Unselect Frame
 
 关闭浏览器
     Close Browser
-
-点击查询
-    Click Element    css=.btn_search2
 
 刷新
     Reload Page

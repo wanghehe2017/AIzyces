@@ -6,9 +6,54 @@ Library           AutoItLibrary
 用户查找
     [Arguments]    ${userid}
     Wait Until Element Is Visible    id=searchform_filter_LIKES_username
+    sleep    4
     Input Text    id=searchform_filter_LIKES_username    ${userid}
 
 获取用户身份
     sleep    2
     ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[6]
     [Return]    ${text}
+
+点击新建
+    Wait Until Element Is Visible    xpath=.//a[text()='新建']
+    Click Element    xpath=.//a[text()='新建']
+
+用户信息输入
+    [Arguments]    ${A}    ${B}    ${C}    ${D}    ${E}    ${F}
+    ...    ${G}    ${H}    ${I}    ${J}    ${K}
+    Wait Until Element Is Visible    id=editform_username
+    Input Text    id=editform_username    ${A}    #账号
+    Wait Until Element Is Visible    id=editform_userpassword
+    Input Text    id=editform_userpassword    ${B}    #密码
+    Wait Until Element Is Visible    id=editform_userpasswordconfirm
+    Input Text    id=editform_userpasswordconfirm    ${C}    #确认密码
+    Wait Until Element Is Visible    id=editform_userrealname
+    Input Text    id=editform_userrealname    ${D}    #用户姓名
+    Wait Until Element Is Visible    id=editform_useremail
+    Input Text    id=editform_useremail    ${E}    #邮箱
+    Wait Until Element Is Visible    id=editform_userphone
+    Input Text    id=editform_userphone    ${F}    #电话
+    Wait Until Element Is Visible    id=editform_usermobile
+    Input Text    id=editform_usermobile    ${G}    #手机
+    Wait Until Element Is Visible    id=editform_userzip
+    Input Text    id=editform_userzip    ${H}    #邮编
+    Wait Until Element Is Visible    id=editform_useraddress
+    Input Text    id=editform_useraddress    ${I}    #联系地址
+    Wait Until Element Is Visible    id=editform_userdesc
+    Input Text    id=editform_userdesc    ${J}    #用户描述
+    Wait Until Element Is Visible    id=editform_useridentity
+    Select From List    id=editform_useridentity    ${K}    #用户身份
+
+确认新建
+    Wait Until Element Is Visible    xpath=.//input[@value='确定']
+    Click Element    xpath=.//input[@value='确定']
+    sleep    5
+
+点击查询
+    Click Element    css=.btn_search2
+    sleep    4
+
+点击删除
+    Wait Until Element Is Visible    xpath=.//a[text()='删除']
+    Click Element    xpath=.//a[text()='删除']
+    sleep    3

@@ -14,10 +14,10 @@ Resource          结算pages/结算数据审核page.txt
 
 *** Test Cases ***
 b1管理员权限
-    登录    wh5    #管理员看到所有
+    登录    wh5    123456    #管理员看到所有
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     sleep    5
     结算审核数据搜素条件    True    True    True    True    True    True
     ...    True    True    True
@@ -38,24 +38,24 @@ b1管理员权限
     [Teardown]    Close All Browsers
 
 报数单位统计结算审核页权限
-    登录    wh1    #报数单位统计
+    登录    wh1    123465    #报数单位统计
     点击结算业务
     ${title}    Run Keyword And Return Status    Element Should Be Visible    xpath=//span[text()='结算数据审核']    #结算数据审核
     Should Be Equal As Strings    ${title}    False
     [Teardown]    Close All Browsers
 
 报数单位财务结算审核页权限
-    登录    wh2    #报数单位财务
+    登录    wh2    123456    #报数单位财务
     点击结算业务
     ${title}    Run Keyword And Return Status    Element Should Be Visible    xpath=//span[text()='结算数据审核']    #结算数据审核
     Should Be Equal As Strings    ${title}    False
     [Teardown]    Close All Browsers
 
 中影单位统计结算审核页权限
-    登录    wh3    #管理员看到所有
+    登录    wh3    123456    #管理员看到所有
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     sleep    2
     结算审核数据搜素条件    True    True    True    True    True    True
     ...    True    False    True
@@ -70,10 +70,10 @@ b1管理员权限
     [Teardown]    Close All Browsers
 
 中影单位财务结算审核页权限
-    登录    wh5    #管理员看到所有
+    登录    wh5    123456    #管理员看到所有
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     sleep    2
     结算审核数据搜素条件    True    True    True    True    True    True
     ...    True    True    True
@@ -94,33 +94,33 @@ b1管理员权限
     [Teardown]    Close All Browsers
 
 验证不同身份邮箱是否有
-    登录    wh1    #有邮箱的
+    登录    wh1    123456    #有邮箱的
     ${url}    Get Location
     关闭浏览器
     Should Be Equal As Strings    ${url}    http://124.207.105.120:8090/jspt/adminindex.jsp
-    登录    50020091    #有邮箱的
+    登录    50020091    123456    #有邮箱的
     ${url}    Get Location
     关闭浏览器
     Should Be Equal As Strings    ${url}    http://124.207.105.120:8090/jspt/common/userinfo!input.action
     [Teardown]    Close All Browsers
 
 b登录验证
-    登录    wh1
+    登录    wh1    123456
     ${usertext}    Get Text    id=ShowTime
     Should Contain    ${usertext}    户名:wh1
     关闭浏览器
     [Teardown]    Close All Browsers
 
 影院编码不一致提示
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\北京百丽宫.xlsx
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     sleep    3
     ${massage}    Handle Alert
     Should Contain    ${massage}    影院：重庆百丽宫（天地店）影院 影院专资编码：50030191
@@ -130,15 +130,15 @@ b登录验证
     [Teardown]    Close All Browsers
 
 多sheet提示
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\重庆百丽宫多sheet提示.xlsx
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
@@ -149,15 +149,15 @@ b登录验证
     [Teardown]    Close All Browsers
 
 标题错误提示
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\重庆百里宫标题错误提示.xlsx
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
@@ -168,15 +168,15 @@ b登录验证
     [Teardown]    Close All Browsers
 
 数据中空行提示
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\重庆百里宫影片中空行提示.xlsx
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
@@ -187,15 +187,15 @@ b登录验证
     [Teardown]    Close All Browsers
 
 数据中合计下空行提示
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\重庆百里宫影片中合计行下空行.xlsx
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
@@ -206,15 +206,15 @@ b登录验证
     [Teardown]    Close All Browsers
 
 合计字错误
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\重庆百里宫影片中合计字错误.xlsx
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    3
     ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
@@ -225,15 +225,15 @@ b登录验证
     [Teardown]    Close All Browsers
 
 合计字缺少
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\重庆百里宫影片中合计字缺少.xlsx
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    3
     ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
@@ -244,15 +244,15 @@ b登录验证
     [Teardown]    Close All Browsers
 
 数据类型错误
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\重庆百里宫数据格式错误提示.xlsx
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     ${text}    获取提示信息
@@ -263,15 +263,15 @@ b登录验证
     [Teardown]    Close All Browsers
 
 缺少标题
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\重庆百里宫影片中缺少标题.xlsx
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     ${text}    获取提示信息
@@ -282,15 +282,15 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传其他类型
-    登录    wh4
+    登录    wh4    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\tishi\\重庆百里宫影片中.png
     选择上传结算单位    重庆百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     ${text}    Get Text    xpath=//html/body/div[4]/form/table/tbody/tr[2]/td[2]/label[1]
@@ -301,10 +301,10 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传文件结算单位查询
-    登录    wh5    #导出ERP文件
+    登录    wh5    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     下拉选择结算单位    百度影院
     输入结算单位名称    百度影院
     选择结算方式    全结影院
@@ -315,10 +315,10 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传文件专资编码查询
-    登录    wh5    #导出ERP文件
+    登录    wh5    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     输入专资编码    50030191
     查询选择结算年月    2018-06
     点击月结算附件页查询按钮
@@ -327,10 +327,10 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传文件审核状态
-    登录    wh5    #导出ERP文件
+    登录    wh5    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     选择审核状态    未审核
     查询选择结算年月    2018-06
     点击月结算附件页查询按钮
@@ -339,10 +339,10 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传文件上传状态
-    登录    wh5    #导出ERP文件
+    登录    wh5    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     下拉选择上传状态    已上传
     查询选择结算年月    2018-06
     点击月结算附件页查询按钮
@@ -351,10 +351,10 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传文件是否为新增结算单位
-    登录    wh5    #导出ERP文件
+    登录    wh5    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     选择是否仅为新增    是
     查询选择结算年月    2018-06
     点击月结算附件页查询按钮
@@ -363,10 +363,10 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传文件分账比例是否一致
-    登录    wh4    #导出ERP文件
+    登录    wh4    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     下拉选择分账比例    一致
     查询选择结算年月    2018-06
     点击月结算附件页查询按钮
@@ -375,10 +375,10 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传文件结算方式
-    登录    wh4    #导出ERP文件
+    登录    wh4    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     选择结算方式    全结影院
     查询选择结算年月    2018-06
     点击月结算附件页查询按钮
@@ -387,10 +387,10 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传文件结算年月
-    登录    wh4    #导出ERP文件
+    登录    wh4    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     查询选择结算年月    2018-06
     点击月结算附件页查询按钮
     sleep    10
@@ -398,33 +398,33 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传计算审核导出ERP驳回流程
-    登录    wh1    #结算单位上传文件
+    登录    wh1    123456    #结算单位上传文件
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\北京百丽宫.xlsx
     选择结算年月    2018-06
     选择上传结算单位    北京百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     点击后退
     退出iframe
     退出登录
     关闭浏览器
-    登录    wh4    #导出ERP文件
+    登录    wh4    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     勾选第一个复选框
     导出ERP文件
     sleep    10
     刷新
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     勾选第一个复选框
     点击票房计算    2
     确认
@@ -442,26 +442,26 @@ b登录验证
     [Teardown]    Close All Browsers
 
 上传计算审核下载盖章件驳回流程
-    登录    wh1    #结算单位上传文件
+    登录    wh1    123456    #结算单位上传文件
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\北京百丽宫.xlsx
     选择结算年月    2018-06
     选择上传结算单位    北京百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     点击后退
     退出iframe
     退出登录
     关闭浏览器
-    登录    wh4    #导出ERP文件
+    登录    wh4    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     勾选第一个复选框
     点击票房计算    2
     确认
@@ -472,25 +472,25 @@ b登录验证
     sleep    5
     退出iframe
     关闭浏览器
-    登录    wh1    #结算单位上传文件
+    登录    wh1    123456
     点击结算业务
     sleep    1
     点击上传结算盖章件
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\上传盖章文件.pdf
     选择结算年月    2018-06
     选择上传结算单位    北京百丽宫影院有限公司
-    点击确定
+    确定上传
     确认
     sleep    2
     点击后退
     退出iframe
     退出登录
-    登录    wh4    #下载盖章件
+    登录    wh4    123456    #下载盖章件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     勾选第一个复选框
     下载盖章文件
     sleep    5
@@ -503,14 +503,14 @@ b登录验证
     [Teardown]    Close All Browsers
 
 b上传盖章文件验证
-    登录    wh1    #结算单位上传文件
+    登录    wh1    123456    #结算单位上传文件
     点击结算业务
     sleep    1
     点击上传结算盖章件
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\上传盖章文件.pdf
-    点击确定
+    确定上传
     ${massage}    Handle Alert
     确认
     sleep    2
@@ -520,38 +520,38 @@ b上传盖章文件验证
     [Teardown]    Close All Browsers
 
 b上传审核通过并驳回
-    登录    wh1    #结算单位上传文件
+    登录    wh1    123456    #结算单位上传文件
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\用户上传文件名称成功.xlsx
-    点击确定
+    确定上传
     确认
     sleep    2
     点击后退
     退出iframe
     退出登录
     关闭浏览器
-    登录    wh5    #导出ERP文件
+    登录    wh5    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     点击导出ERP文件
     确认    #确认导出
     sleep    2
     刷新
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     点击审核通过
     确认    #确认通过
     sleep    2
     刷新
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     点击票房计算    1
     确认    #确认驳回
     退出iframe
@@ -559,57 +559,57 @@ b上传审核通过并驳回
     [Teardown]    Close All Browsers
 
 b审核中无法上传
-    登录    wh1    #结算单位上传文件
+    登录    wh1    123456    #结算单位上传文件
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\用户上传文件名称成功.xlsx
-    点击确定
+    确定上传
     确认
     sleep    5
     点击后退
     退出iframe
     退出登录
     关闭浏览器
-    登录    wh5    #导出ERP文件
+    登录    wh5    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     点击导出ERP文件
     确认    #确认导出
     退出iframe
     关闭浏览器
-    登录    wh1    #结算单位再次上传文件
+    登录    wh1    123456    #结算单位再次上传文件
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\用户上传文件名称成功.xlsx
-    点击确定
+    确定上传
     ${massage}    Handle Alert
     Should Contain    ${massage}    审核中，如需重新上传需联系中影财务人员处理。
     sleep    2
     退出iframe
     关闭浏览器
-    登录    wh5    #审核通过后业务上传
+    登录    wh5    123456    #审核通过后业务上传
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     点击审核通过
     确认    #确认通过
     退出iframe
     关闭浏览器
-    登录    wh1    #结算单位再次上传文件
+    登录    wh1    123456    #结算单位再次上传文件
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\用户上传文件名称成功.xlsx
-    点击确定
+    确定上传
     ${massage}    Handle Alert
     Should Contain    ${massage}    月结算表已经审核通过，请上传盖章件， 如需重新上传结算表需联系中影财务人员处理。
     sleep    2
@@ -618,44 +618,44 @@ b审核中无法上传
     [Teardown]    Close All Browsers
 
 b上传盖章文件
-    登录    wh1    #结算单位上传文件
+    登录    wh1    123456    #结算单位上传文件
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\用户上传文件名称成功.xlsx
-    点击确定
+    确定上传
     确认
     sleep    2
     点击后退
     退出iframe
     退出登录
     关闭浏览器
-    登录    wh5    #导出ERP文件
+    登录    wh5    123456    #导出ERP文件
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     点击导出ERP文件
     确认    #确认导出
     sleep    2
     刷新
     点击结算业务
     点击结算数据审核
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     点击审核通过
     确认    #确认通过
     sleep    2
     退出iframe
     关闭浏览器
-    登录    wh1    #结算单位上传文件
+    登录    wh1    123456    #结算单位上传文件
     点击结算业务
     sleep    1
     点击上传结算盖章件
     sleep    1
-    进入上传页面ifarme    mainFrame
+    进入上传页面ifarme
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\sucess\\上传盖章文件.zip
-    点击确定
+    确定上传
     确认
     sleep    2
     点击后退
@@ -664,8 +664,30 @@ b上传盖章文件
     关闭浏览器
     [Teardown]    Close All Browsers
 
-test1
-    登录    50020091    #有邮箱的
+邮箱
+    登录    50020091    123456    #有邮箱的
     ${url}    Get Location
     关闭浏览器
     log    ${url}    #http://124.207.105.120:8090/jspt/adminindex.jsp
+
+创建用户
+    登录    admin    admin123
+    点击权限管理
+    点击用户管理
+    进入上传页面ifarme
+    点击新建
+    用户信息输入    wh7    123456    123456    wh7    12345678@qq.com    123456789123
+    ...    123456789123    123444    11    11    报数单位统计
+    确认新建
+    关闭浏览器
+
+删除用户
+    登录    admin    admin123
+    点击权限管理
+    点击用户管理
+    进入上传页面ifarme
+    用户查找    wh7
+    点击查询
+    点击删除
+    确认
+    关闭浏览器

@@ -8,7 +8,7 @@ Library           AutoItLibrary
     Wait Until Element Is Visible    id=upFile
     Choose File    id=upFile    ${file1}
 
-点击确定
+确定上传
     Click Element    css=.btn_action
 
 确认
