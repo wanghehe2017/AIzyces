@@ -108,3 +108,30 @@ Resource          发行pages/宣传品管理.txt
     ${Reviewprogressl}    Get Text    xpath=//html/body/form/table[3]/tbody/tr[2]/td[6]    #0/0 院线 已审核通过
     Should Be Equal    ${auditstatusl}    审核中
     Should Be Equal    ${Reviewprogressl}    0/1 院线 已审核通过
+
+变更设备归属1
+    [Arguments]    ${mySearch}    ${Select_yt}    ${Change_DeviceTypeName}    ${Select_BelongTypeName_1}
+    登录    mqb
+    Wait Until Element Is Visible    id=A0213    #点击影院信息管理
+    Click Element    id=A0213    #点击影院信息管理
+    sleep    4
+    Select Frame    id=Desktop
+    Input Text    id=mySearch    ${mySearch}
+    sleep    4
+    Wait Until Element Is Visible    css=.colorbotton
+    Click Element    css=.colorbotton    #点击查询
+    sleep    4
+    Wait Until Element Is Visible    xpath=//html/body/form/table[3]/tbody/tr[3]/td[10]/button[1]
+    Click Element    xpath=//html/body/form/table[3]/tbody/tr[3]/td[10]/button[1]    #点击变更设备归属
+    sleep    4
+    Select From List    id=Select_yt    ${Select_yt}    #选择影厅
+    sleep    4
+    Click Element    xpath=//html/body/form/div[1]/table/tbody/tr/td[5]
+    Select From List    id=Change_DeviceTypeName    ${Change_DeviceTypeName}    #选择设备类型
+    sleep    4
+    Select From List    id=Select_BelongTypeName_1    ${Select_BelongTypeName_1}    #选择要变为的设备类型
+    sleep    4
+    Wait Until Element Is Visible    xpath=//html/body/form/div[2]/div/table/tbody/tr[2]/td[6]/button
+    Click Element    xpath=//html/body/form/div[2]/div/table/tbody/tr[2]/td[6]/button    #点击便跟
+    Confirm Action
+    sleep    4

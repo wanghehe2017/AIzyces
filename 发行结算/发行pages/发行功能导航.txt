@@ -9,3 +9,7 @@ Library           Selenium2Library
 点击国产影片
     Wait Until Element Is Visible    id=A0301
     Click Element    id=A0301
+
+点击影院变更管理
+    Wait Until Element Is Visible    id=A0215
+    Click Element    id=A0215

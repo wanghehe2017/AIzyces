@@ -1,0 +1,34 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          4_发行template.txt
+Library           AutoItLibrary
+Resource          发行pages/发行登录page.txt
+Resource          发行pages/发行功能导航.txt
+Resource          发行pages/国产影片内容.txt
+Resource          发行pages/宣传品管理.txt
+Resource          发行pages/发运表管理.txt
+
+*** Test Cases ***
+变更设备归属
+    变更设备归属1    44001236    2    2K    院线设备
+
+便跟设备归属审核
+    登录    zd
+    点击影院变更管理
+    sleep    20
+    Select Frame    id=Desktop
+    ${test}    Get Text    xpath=//button[text()='审核']
+    ${index}    Get Element Count    xpath=//button[text()='审核']
+    sleep    5
+    : FOR    ${i}    IN RANGE    ${index}
+    \    Run Keyword If    '${test}'=='审核'    Click Element    xpath=//button[text()='审核']
+    \    sleep    3
+    \    点击通过
+    \    sleep    3
+    \    弹出框确认保存
+    \    sleep    3
+    \    弹出框确认保存
+    \    sleep    3    Exit For Loop
+    关闭浏览器
+
+test1

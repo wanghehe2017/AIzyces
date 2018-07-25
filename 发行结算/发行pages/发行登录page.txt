@@ -34,3 +34,7 @@ Library           Selenium2Library
     sleep    5
     Confirm Action
     sleep    5
+
+点击通过
+    Wait Until Element Is Visible    xpath=//button[text()='通过']
+    Click Element    xpath=//button[text()='通过']
