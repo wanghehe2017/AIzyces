@@ -8,7 +8,7 @@ Library           AutoItLibrary
     ${结算单位名称}    Get Text    xpath=//html/body/div[6]/table/thead/tr/th[${i}]    #2.结算单位名称3.影院专资编码4.结算年月5.审核状态
     Should Contain    ${结算单位名称}    ${btitle}    #6.处理结果7.上传完成时间8.分账比例对比9.总票房    #10.净票房11.分账片款12.实际应收13.差额14.操作
 
-勾选第一个复选框
+勾选全选
     sleep    5
     Click Element    xpath=//html/body/div[6]/table/tbody/tr[1]/td[1]/input[4]
 
@@ -128,15 +128,14 @@ Library           AutoItLibrary
     Select From List    id=searchform_filter_EQS_ts___settlemode    ${settlemode}
 
 点击票房计算
-    [Arguments]    ${i}
     sleep    5
     Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[1]    #票房计算
     Click Element    Xpath=//html/body/div[5]/a[1]
     sleep    1
 
 点击审核通过
-    Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[2][text()='审核通过']    #审核通过
-    Click Element    Xpath=//html/body/div[5]/a[2][text()='审核通过']
+    Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[2]    #审核通过
+    Click Element    Xpath=//html/body/div[5]/a[2]
     sleep    1
 
 点击驳回
@@ -156,3 +155,7 @@ Library           AutoItLibrary
     Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[5]    #下载盖章件
     Click Element    Xpath=//html/body/div[5]/a[5]
     sleep    1
+
+勾选单选框
+    sleep    5
+    Click Element    xpath=//html/body/div[6]/table/tbody/tr/td[1]/input[5]

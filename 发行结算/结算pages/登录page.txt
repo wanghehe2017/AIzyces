@@ -6,7 +6,7 @@ Library           AutoItLibrary
 *** Keywords ***
 登录
     [Arguments]    ${username}    ${userpassword}
-    Open Browser    http://124.207.105.120:8090/jspt/index.action    chrome
+    Open Browser    http://10.1.31.65:8090/jspt/index.action    chrome    #http://124.207.105.120:8090/jspt/index.action
     Maximize Browser Window
     Input Text    id=username    ${username}
     Input Text    id=userpassword    ${userpassword}
@@ -22,8 +22,8 @@ Library           AutoItLibrary
     Wait Until Element Is Visible    css=.btn_search2
     Click Element    css=.btn_search2
 
-进入上传页面ifarme
-    Select Frame    id=mainFrame    #mainFrame ，file_frame
+进入页面iframe
+    Select Frame    id=mainFrame    #mainFrame
 
 退出iframe
     Unselect Frame

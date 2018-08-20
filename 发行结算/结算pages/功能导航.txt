@@ -34,3 +34,7 @@ Library           AutoItLibrary
 点击结算数据审核
     Wait Until Element Is Visible    xpath=//span[text()='结算数据审核']
     Click Element    xpath=//span[text()='结算数据审核']
+
+点击影片发行一览表
+    Wait Until Element Is Visible    xpath=//span[text()='影片发行一览表']
+    Click Element    xpath=//span[text()='影片发行一览表']

@@ -1,0 +1,7 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Test Cases ***
+testcase1
+    Open Browser    http://218.246.120.154/    ie
+    Close Browser

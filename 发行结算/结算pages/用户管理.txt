@@ -3,7 +3,7 @@ Library           Selenium2Library
 Library           AutoItLibrary
 
 *** Keywords ***
-用户查找
+用户输入
     [Arguments]    ${userid}
     Wait Until Element Is Visible    id=searchform_filter_LIKES_username
     sleep    4
@@ -57,3 +57,43 @@ Library           AutoItLibrary
     Wait Until Element Is Visible    xpath=.//a[text()='删除']
     Click Element    xpath=.//a[text()='删除']
     sleep    3
+
+点击业务绑定
+    sleep    3
+    Wait Until Element Is Visible    xpath=//a[text()='业务绑定']
+    Click Element    xpath=//a[text()='业务绑定']
+
+点击结算单位
+    Wait Until Element Is Visible    id=searchform_unit_type3
+    Click Element    id=searchform_unit_type3
+
+点击全选结算单位复选框
+    Click Element    id=chkall
+
+点击保存
+    Click Element    id=assignUnit
+
+点击角色
+    sleep    3
+    Wait Until Element Is Visible    xpath=//a[text()='角色']
+    Click Element    xpath=//a[text()='角色']
+
+点击角色分配
+    sleep    3
+    Wait Until Element Is Visible    xpath=//a[text()='分配']
+    Click Element    xpath=//a[text()='分配']
+
+点击角色批量分配
+    Wait Until Element Is Visible    css=.btn_page4
+    Click Element    css=.btn_page4
+    sleep    3
+
+点击角色财务人员
+    sleep    3
+    Wait Until Element Is Visible    xpath=//input[@value='112']
+    Click Element    xpath=//input[@value='112']
+
+点击角色报数单位统计
+    sleep    3
+    Wait Until Element Is Visible    xpath=//input[@value='101']
+    Click Element    xpath=//input[@value='101']

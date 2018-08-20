@@ -1,0 +1,16 @@
+*** Settings ***
+Library           Selenium2Library
+Library           AutoItLibrary
+
+*** Keywords ***
+点击影片名称
+    [Arguments]    ${searchform_filmname}
+    Wait Until Element Is Visible    id=searchform_filmname
+    Input Text    id=searchform_filmname    ${searchform_filmname}
+
+点击结算单位名称
+    [Arguments]    ${searchform_settlename}
+    Wait Until Element Is Visible    id=searchform_settlename
+    Input Text    id=searchform_settlename    ${searchform_settlename}
+
+输入开始时间

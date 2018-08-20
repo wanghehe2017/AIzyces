@@ -4,7 +4,7 @@ Library           Selenium2Library
 *** Keywords ***
 登录
     [Arguments]    ${username}
-    Open Browser    http://218.246.120.154/    ie
+    Open Browser    http://218.246.120.154/    Firefox
     Maximize Browser Window
     sleep    2
     Input Text    id=username    ${username}

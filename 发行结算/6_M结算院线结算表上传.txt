@@ -1,0 +1,197 @@
+*** Settings ***
+Resource          结算pages/登录page.txt
+Resource          结算pages/上传月结算表.txt
+Resource          结算pages/功能导航.txt
+Resource          结算pages/月结算附件.txt
+Resource          结算pages/结算数据审核page.txt
+Resource          结算pages/用户管理.txt
+Resource          结算pages/影片一览表.txt
+
+*** Test Cases ***
+1_删除测试用户
+    登录    admin    admin123
+    点击权限管理
+    点击用户管理
+    进入页面iframe
+    用户输入    wh5
+    点击查询
+    点击删除
+    sleep    2
+    确认
+    退出iframe
+    退出登录
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+2_创建财务人员身份用户
+    登录    admin    admin123
+    点击权限管理
+    点击用户管理
+    进入页面iframe
+    点击新建
+    用户信息输入    wh5    123456    123456    wh5    12345678@qq.com    123456789123
+    ...    123456789123    123444    11    11    中影财务用户
+    确认新建
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+3_分配所有结算单位
+    登录    admin    admin123
+    点击权限管理
+    点击用户管理
+    进入页面iframe
+    用户输入    wh5
+    点击查询
+    点击业务绑定
+    点击结算单位
+    点击查询
+    点击全选结算单位复选框
+    sleep    5
+    点击保存
+    确认
+    sleep    3
+    关闭浏览器
+
+4_分配用户角色
+    登录    admin    admin123
+    点击权限管理
+    点击用户管理
+    进入页面iframe
+    用户输入    wh5
+    点击查询
+    点击角色
+    点击角色分配
+    点击角色财务人员
+    点击角色报数单位统计
+    点击角色批量分配
+    关闭浏览器
+
+5_自购可以成功上传并计算
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\深圳市深影橙天院线有限公司全自购正常上传.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    勾选单选框
+    点击票房计算
+    确认
+    点击驳回
+    确认
+    关闭浏览器
+
+缺少影院名称列上传不成功
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\深圳市深影橙天院线有限公司全自购缺少影院名称.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    3
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    影院不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+1_结算表驳回
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    勾选单选框
+    点击驳回
+    确认
+
+2_结算表驳回
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    ${index}    Get Element Count    xpath=//td[1]/input[5]
+    log    ${index}
+    : FOR    ${i}    IN RANGE    1    ${index}    1
+    \    ${test}    Get Text    xpath=//tr[${i}]/td[2]/a
+    \    sleep    1
+    \    Run Keyword If    '${test}'=='深圳市深影橙天院线有限公司'    Click Element    xpath=//tr[${i}]/td[1]/input[5]
+    \    Run Keyword If    '${test}'=='深圳市深影橙天院线有限公司'    Click Element    xpath=//html/body/div[5]/a[3]
+    \    Run Keyword If    '${test}'=='深圳市深影橙天院线有限公司'    确认    Exit For Loop
+    关闭浏览器
+
+3_结算表驳回
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    ${index}    Get Element Count    xpath=//td[1]/input[5]
+    log    ${index}
+    : FOR    ${i}    IN RANGE    1    5
+    \    ${test}    Get Text    xpath=//tr[${i}]/td[2]/a
+    \    log    ${test}
+    \    sleep    2    Exit For Loop
+    关闭浏览器
+
+1_财务人员数据恢复全部驳回
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    sleep    2
+    ${index}    Get Element Count    xpath=//td[1]/input[5]
+    ${index1}    Evaluate    ${index}+1
+    : FOR    ${i}    IN RANGE    1    ${index1}    1
+    \    Click Element    xpath=//tr[${i}]/td[1]/input[5]
+    \    sleep    1
+    \    Click Element    xpath=//html/body/div[5]/a[3]
+    \    确认
+    \    sleep    2    Exit For Loop
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+2_分配结算单位test
+    登录    admin    admin123
+    点击权限管理
+    点击用户管理
+    进入页面iframe
+    用户输入    wh5
+    点击查询
+    点击业务绑定
+    点击结算单位
+    点击查询
+    ${index}    Get Element Count    xpath=.//table/tbody/tr
+    log    ${index}
+    ${index1}    Evaluate    ${index}+1
+    : FOR    ${i}    IN RANGE    1    ${index1}    1
+    \    sleep    1
+    \    ${test}    Get Text    xpath=//tr[${i}]/td[2]
+    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    Click Element    xpath=//tr[${i}]/td[1]/input
+    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    sleep    1
+    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    Click Element    xpath=//a[text()='保存']
+    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    确认    Exit For Loop
+    关闭浏览器

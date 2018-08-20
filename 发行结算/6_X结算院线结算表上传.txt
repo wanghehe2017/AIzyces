@@ -1,0 +1,11 @@
+*** Settings ***
+Resource          结算pages/登录page.txt
+Resource          结算pages/上传月结算表.txt
+Resource          结算pages/功能导航.txt
+Resource          结算pages/月结算附件.txt
+Resource          结算pages/结算数据审核page.txt
+Resource          结算pages/用户管理.txt
+Resource          结算pages/影片一览表.txt
+
+*** Test Cases ***
+111

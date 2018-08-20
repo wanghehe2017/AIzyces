@@ -13,22 +13,29 @@ Resource          发行pages/发运表管理.txt
     变更设备归属1    44001236    2    2K    院线设备
 
 便跟设备归属审核
-    登录    zd
-    点击影院变更管理
-    sleep    20
+    Open Browser    http://fx1.zgdygf.com:7011/    ie
+    Maximize Browser Window
+    sleep    2
+    Input Text    id=username    zd
+    Input Text    id=password    hy
+    Click Button    name=yes
+    Sleep    5
+    #Wait Until Element Is Visible    #id=globalNavMainInner02    #点击基础信息
+    #Click Element    #id=globalNavMainInner02
+    #Sleep    #3
+    Wait Until Element Is Visible    id=A0215    #点击院线便跟管理
+    Click Element    id=A0215
+    sleep    15
     Select Frame    id=Desktop
     ${test}    Get Text    xpath=//button[text()='审核']
     ${index}    Get Element Count    xpath=//button[text()='审核']
     sleep    5
-    : FOR    ${i}    IN RANGE    ${index}
+    : FOR    ${i}    IN RANGE    30
     \    Run Keyword If    '${test}'=='审核'    Click Element    xpath=//button[text()='审核']
-    \    sleep    3
     \    点击通过
-    \    sleep    3
     \    弹出框确认保存
-    \    sleep    3
     \    弹出框确认保存
-    \    sleep    3    Exit For Loop
+    \    sleep    8    Exit For Loop
     关闭浏览器
 
 test1
