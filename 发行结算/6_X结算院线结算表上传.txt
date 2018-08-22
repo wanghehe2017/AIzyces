@@ -8,4 +8,1484 @@ Resource          结算pages/用户管理.txt
 Resource          结算pages/影片一览表.txt
 
 *** Test Cases ***
-111
+YXDJ-3
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-3深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    影院列,影城专资码不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-4
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-4深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    影院列,影城专资码不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-5
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-5深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新。
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-6
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-6深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新。
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-7
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-7深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    影城专资码不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-8
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-8深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    影院不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-9
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-9深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新。
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-10
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-10深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新。
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-11
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-11深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新。
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-12
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-12深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新。
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-13
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-13深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    未填写影院编码
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-14
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-14深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    未填写影院编码
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-15
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-15江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    影院列,影城专资码不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-16
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-16江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    影城专资码不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-17
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-17江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    影院不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-18
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-18江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    未填写影院编码
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-19
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-19江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-20
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-20江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-21
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-21江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-22
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-22江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    未填写影院编码
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-23
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-23江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    20
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-24
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-24江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    20
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    未填写影院编码
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-25
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-25江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    20
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    未填写影院编码
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-26
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-26江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    20
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-27
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-27江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    20
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    未填写影院编码
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-28
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-5深圳市深影橙天院线有限公司.xlsx
+    ${text}    Get Element Attribute    id=feeYMStr@value
+    ${yyyy}    ${mm}=    Get Time    year,month
+    Run Keyword If    '${text}'!='${yyyy}-${mm}'    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新。
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-29_30
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    ${value}    Get Element Attribute    id=feeYMStr@value
+    ${disable}    Get Element Attribute    id=feeYMStr@disabled
+    ${readonly}    Get Element Attribute    id=feeYMStr@readonly
+    ${yyyy}    ${mm}=    Get Time    year,month
+    Run Keyword If    '${value}'!='${yyyy}-${mm}' and '${disable}' \ == 'true' \ and '${readonly}' == 'true'    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-31
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    院线一级界面检查标题元素    2    结算单位名称
+    院线一级界面检查标题元素    3    影院专资编码
+    院线一级界面检查标题元素    4    结算年月
+    院线一级界面检查标题元素    5    审核状态
+    院线一级界面检查标题元素    6    处理结果
+    院线一级界面检查标题元素    7    上传完成时间
+    院线一级界面检查标题元素    8    分账比例对比
+    院线一级界面检查标题元素    9    总票房
+    院线一级界面检查标题元素    10    净票房
+    院线一级界面检查标题元素    11    分账片款
+    院线一级界面检查标题元素    12    实际应收
+    院线一级界面检查标题元素    13    差额
+    院线一级界面检查标题元素    14    操作
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-32
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    院线二级界面检查标题元素    1    序号
+    院线二级界面检查标题元素    2    结算单位名称
+    院线二级界面检查标题元素    3    影片名称
+    院线二级界面检查标题元素    4    影片编码
+    院线二级界面检查标题元素    5    设备归属
+    院线二级界面检查标题元素    6    开始日期
+    院线二级界面检查标题元素    7    结束日期
+    院线二级界面检查标题元素    8    分账比例
+    院线二级界面检查标题元素    9    系统比例
+    院线二级界面检查标题元素    10    基础比例
+    院线二级界面检查标题元素    11    总票房
+    院线二级界面检查标题元素    12    净票房
+    院线二级界面检查标题元素    13    分账片款
+    院线二级界面检查标题元素    14    实际应收
+    院线二级界面检查标题元素    15    差额
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-33
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    二级界面点击第一个影片
+    院线三级界面检查标题元素    1    序号
+    院线三级界面检查标题元素    2    原始影院名称
+    院线三级界面检查标题元素    3    影院编码
+    院线三级界面检查标题元素    4    影片名称
+    院线三级界面检查标题元素    5    影片编码
+    院线三级界面检查标题元素    6    设备归属
+    院线三级界面检查标题元素    7    开始日期
+    院线三级界面检查标题元素    8    结束日期
+    院线三级界面检查标题元素    9    分账比例
+    院线三级界面检查标题元素    10    系统比例
+    院线三级界面检查标题元素    11    总票房
+    院线三级界面检查标题元素    12    净票房
+    院线三级界面检查标题元素    13    分账片款
+    院线三级界面检查标题元素    14    实际应收
+    院线三级界面检查标题元素    15    差额
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-34
+    登录    admin    admin123
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    二级界面点击第一个影片
+    院线三级界面检查标题元素    1    序号
+    院线三级界面检查标题元素    2    原始影院名称
+    院线三级界面检查标题元素    3    系统影院名称
+    院线三级界面检查标题元素    4    影院编码
+    院线三级界面检查标题元素    5    影片名称
+    院线三级界面检查标题元素    6    影片编码
+    院线三级界面检查标题元素    7    设备归属
+    院线三级界面检查标题元素    8    开始日期
+    院线三级界面检查标题元素    9    结束日期
+    院线三级界面检查标题元素    10    分账比例
+    院线三级界面检查标题元素    11    系统比例
+    院线三级界面检查标题元素    12    总票房
+    院线三级界面检查标题元素    13    净票房
+    院线三级界面检查标题元素    14    分账片款
+    院线三级界面检查标题元素    15    实际应收
+    院线三级界面检查标题元素    16    差额
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-35
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-35深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    ${timetext}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[6]
+    ${index}    Get Element Count    xpath=.//td[text()='深圳市深影橙天院线有限公司']
+    Run Keyword If    ${index}==1 and '${timetext}'=='2018-07-01'    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-36
+    登录    wh5    123456    #原始文件对于同一部影片，同一个分段开始日期有多个
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-36深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    ${timetext}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[6]
+    ${index}    Get Element Count    xpath=.//td[text()='深圳市深影橙天院线有限公司']
+    Run Keyword If    ${index}==1 and '${timetext}'=='2018-07-01'    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-37
+    登录    wh5    123456    #原始文件对于同一部影片，同一个分段开始日期有多个
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-37深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    ${timetext}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[7]
+    ${index}    Get Element Count    xpath=.//td[text()='深圳市深影橙天院线有限公司']
+    Run Keyword If    ${index}==1 and '${timetext}'=='2018-07-31'    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-38
+    登录    wh5    123456    #原始文件对于同一部影片，同一个分段开始日期有多个
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-38深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    ${timetext}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[7]
+    ${index}    Get Element Count    xpath=.//td[text()='深圳市深影橙天院线有限公司']
+    Run Keyword If    ${index}==1 and '${timetext}'=='2018-07-31'    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-39
+    登录    wh5    123456    #原始文件对于同一部影片，同一个分段开始日期有多个
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-39深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    ${index}    Get Element Count    xpath=.//td[text()='深圳市深影橙天院线有限公司']
+    二级界面点击第一个影片
+    ${index2}    Get Element Count    xpath=.//td[text()='001c05642018']    #影片排次号个数
+    Run Keyword If    ${index}==1 and ${index2}==102    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-40
+    登录    wh5    123456    #原始文件对于同一部影片，同一个分段开始日期有多个
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-40深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    ${index}    Get Element Count    xpath=.//td[text()='深圳市深影橙天院线有限公司']
+    二级界面点击第一个影片
+    ${index2}    Get Element Count    xpath=.//td[text()='001c05642018']    #影片排次号个数
+    Run Keyword If    ${index}==5 and ${index2}==102    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-41
+    登录    wh5    123456    #原始文件对于同一部影片，同一个分段开始日期有多个
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-41深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    ${index1}    Get Element Count    xpath=.//td[text()='深圳市深影橙天院线有限公司']
+    ${index2}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[1]/td[5]    #设备归属
+    ${index3}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[2]/td[5]    #设备归属
+    Run Keyword If    ${index1}==2 \ and '${index2}'=='自购' and '${index3}' =='中影设备'    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-42
+    登录    wh5    123456    #原始文件对于同一部影片，同一个分段开始日期有多个
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-42深圳市深影橙天院线有限公司.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    一级界面点击第一个结算单位
+    ${index1}    Get Element Count    xpath=.//td[text()='深圳市深影橙天院线有限公司']
+    ${index2}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[1]/td[5]    #设备归属
+    ${index3}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[2]/td[5]    #设备归属
+    ${index4}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[3]/td[5]    #设备归属
+    ${index5}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[4]/td[5]    #设备归属
+    ${BL1}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[1]/td[8]    #设备归属
+    ${BL2}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[2]/td[8]    #设备归属
+    ${BL3}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[3]/td[5]    #设备归属
+    ${BL4}    Get Text    xpath=//html/body/div[5]/table/tbody/tr[4]/td[5]    #设备归属
+    Run Keyword If    ${index1}==4 \ and '${index2}'=='自购' and '${index3}' =='自购' and '${index2}'=='中影设备' and '${index3}'=='中影设备' and '${BL1}'=='0.43'and '${BL2}'=='0.5'and '${BL3}'=='0.43' and '${BL4}'=='0.5'    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-44
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-44江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-45
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-45江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    未填写影院编码
+    Should Contain    ${text}    “总合计”的分账片款金额，与系统计算的金额不同
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-46_48_52_54_56_58_61
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-46江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-47_53_55_57_59
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-47江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    影院编码格式错误，应为8位数字
+    Should Contain    ${text}    “总合计”的分账片款金额，与系统计算的金额不同
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-49_50_51
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-49江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    第4行9列:总场次不能为空
+    Should Contain    ${text}    第4行10列:总人次不能为空
+    Should Contain    ${text}    第4行11列:总票房不能为空
+    Should Contain    ${text}    第6行12列:电影专项基金不能为空
+    Should Contain    ${text}    第6行14列:税金不能为空
+    Should Contain    ${text}    第6行15列:净票房不能为空
+    Should Contain    ${text}    第6行16列:分账比例不能为空
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-60
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-60江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-62
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-62江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-63
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-63江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    结算表中只能有一个总合计行，请删除多余的总合计行
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-65_68_82
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-65江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-66
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-66江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    影片列,影片编码列,影院列,影城专资码列,开始时间列,结束时间列,人数列,总票房列,净票房列,分成比例列,增值税率列,电影专项基金列,应付款列,税金列,片方/设备归属不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-67
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-67江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    影片列,影片编码列,影院列,影城专资码列,开始时间列,结束时间列,场数列,人数列,总票房列,净票房列,分成比例列,增值税率列,电影专项基金列,应付款列,税金列,片方/设备归属不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-69
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-69江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传文件只能有一个sheet页,请删除多余sheet页面。
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-79
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-79江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击票房计算
+    确认
+    sleep    5
+    ${text}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[8]
+    Should Contain    ${text}    一致
+    sleep    2
+    一级界面点击第一个结算单位
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[9]    #二级界面系统比例
+    Should Contain    ${text}    0.48
+    二级界面点击第一个影片
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[10]    #三级界面系统比例
+    Should Contain    ${text}    0.48
+    点击返回
+    点击返回
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击驳回
+    确认
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-80
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-80江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击票房计算
+    确认
+    sleep    5
+    ${text}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[8]
+    Should Contain    ${text}    不一致
+    sleep    2
+    一级界面点击第一个结算单位
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[9]    #二级界面系统比例
+    Should Be Empty    ${text}
+    二级界面点击第一个影片
+    ${text1}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[10]    #三级界面系统比例
+    Should Be Empty    ${text1}
+    点击返回
+    点击返回
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击驳回
+    确认
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-81
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-81江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    影片编码未找到，请修正。
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-83
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-83江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击票房计算
+    确认
+    sleep    5
+    ${text}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[8]
+    Should Contain    ${text}    不一致
+    sleep    2
+    一级界面点击第一个结算单位
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[5]
+    Should Contain    ${text}    中影设备
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[9]    #二级界面系统比例
+    Should Contain    ${text}    0.48
+    ${text1}    Get Element Attribute    xpath=//html/body/div[5]/table/tbody/tr/td[9]@style    #二级界面系统比例
+    Should Contain    ${text1}    red
+    二级界面点击第一个影片
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[6]
+    Should Contain    ${text}    中影设备
+    ${text2}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[10]    #三级界面系统比例
+    Should Contain    ${text2}    0.48
+    ${text3}    Get Element Attribute    xpath=//html/body/div[5]/table/tbody/tr/td[10]@style
+    Should Contain    ${text3}    red
+    点击返回
+    点击返回
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击驳回
+    确认
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-84
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-84江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击票房计算
+    确认
+    sleep    5
+    ${text}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[8]
+    Should Contain    ${text}    一致
+    sleep    2
+    一级界面点击第一个结算单位
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[5]
+    Should Contain    ${text}    自购
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[9]    #二级界面系统比例
+    Should Contain    ${text}    0.43
+    ${text1}    Get Element Attribute    xpath=//html/body/div[5]/table/tbody/tr/td[9]@style    #二级界面系统比例
+    Should Not Contain    ${text1}    red
+    二级界面点击第一个影片
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[6]
+    Should Contain    ${text}    自购
+    ${text2}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[10]    #三级界面系统比例
+    Should Contain    ${text2}    0.43
+    ${text3}    Get Element Attribute    xpath=//html/body/div[5]/table/tbody/tr/td[10]@style
+    Should Not Contain    ${text3}    red
+    点击返回
+    点击返回
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击驳回
+    确认
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-85
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-85江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击票房计算
+    确认
+    sleep    5
+    ${text}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[8]
+    Should Contain    ${text}    一致
+    sleep    2
+    一级界面点击第一个结算单位
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[5]
+    Should Contain    ${text}    中影设备
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[9]    #二级界面系统比例
+    Should Contain    ${text}    0.48
+    ${text1}    Get Element Attribute    xpath=//html/body/div[5]/table/tbody/tr/td[9]@style    #二级界面系统比例
+    Should Not Contain    ${text1}    red
+    二级界面点击第一个影片
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[6]
+    Should Contain    ${text}    中影设备
+    ${text2}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[10]    #三级界面系统比例
+    Should Contain    ${text2}    0.48
+    ${text3}    Get Element Attribute    xpath=//html/body/div[5]/table/tbody/tr/td[10]@style
+    Should Not Contain    ${text3}    red
+    点击返回
+    点击返回
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击驳回
+    确认
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+YXDJ-86
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\YXDJ-86江西星河电影院线有限公司.xls
+    选择上传结算单位    江西星河电影院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    15
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li/span
+    Should Contain    ${text}    上传成功，审核结果将以邮件形式发送，若邮箱地址变更，请及时在个人信息中更新
+    sleep    2
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击票房计算
+    确认
+    sleep    5
+    ${text}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[8]
+    Should Contain    ${text}    一致
+    sleep    2
+    一级界面点击第一个结算单位
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[5]
+    Should Contain    ${text}    自购
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[9]    #二级界面系统比例
+    Should Contain    ${text}    0.43
+    ${text1}    Get Element Attribute    xpath=//html/body/div[5]/table/tbody/tr/td[9]@style    #二级界面系统比例
+    Should Contain    ${text1}    red
+    二级界面点击第一个影片
+    ${text}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[6]
+    Should Contain    ${text}    自购
+    ${text2}    Get Text    xpath=//html/body/div[5]/table/tbody/tr/td[10]    #三级界面系统比例
+    Should Contain    ${text2}    0.43
+    ${text3}    Get Element Attribute    xpath=//html/body/div[5]/table/tbody/tr/td[10]@style
+    Should \ Contain    ${text3}    red
+    点击返回
+    点击返回
+    下拉选择结算单位    江西星河电影院线有限公司
+    点击查询
+    勾选单选框
+    点击驳回
+    确认
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers

@@ -26,4 +26,5 @@ Library           AutoItLibrary
     [Arguments]    ${feeYMStr}
     Wait Until Element Is Visible    id=feeYMStr
     Execute Javascript    document.getElementById('feeYMStr').removeAttribute("disabled")
+    Execute Javascript    document.getElementById('feeYMStr').removeAttribute("readonly")
     Execute Javascript    document.getElementById('feeYMStr').value='${feeYMStr}'

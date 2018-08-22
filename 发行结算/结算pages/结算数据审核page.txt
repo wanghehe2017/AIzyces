@@ -3,10 +3,20 @@ Library           Selenium2Library
 Library           AutoItLibrary
 
 *** Keywords ***
-检查标题元素
+院线一级界面检查标题元素
     [Arguments]    ${i}    ${btitle}
     ${结算单位名称}    Get Text    xpath=//html/body/div[6]/table/thead/tr/th[${i}]    #2.结算单位名称3.影院专资编码4.结算年月5.审核状态
     Should Contain    ${结算单位名称}    ${btitle}    #6.处理结果7.上传完成时间8.分账比例对比9.总票房    #10.净票房11.分账片款12.实际应收13.差额14.操作
+
+院线二级界面检查标题元素
+    [Arguments]    ${i}    ${btitle}
+    ${结算单位名称}    Get Text    xpath=//html/body/div[5]/table/thead/tr/th[${i}]    #1序号#2.结算单位名称3.影片名称4.影片编码5.设备归属    #11、总票房 12、净票房
+    Should Contain    ${结算单位名称}    ${btitle}    #6.开始日期7.结束日期8.系统比例9.基础比例10、基础比例    13、分段片款14、实际应收15差额
+
+院线三级界面检查标题元素
+    [Arguments]    ${i}    ${btitle}
+    ${结算单位名称}    Get Text    xpath=//html/body/div[5]/table/thead/tr/th[${i}]    #1序号#2.原始影院名称，3、影院编码4、影片名称5、影片编码、6、设备归属7、开始日期
+    Should Contain    ${结算单位名称}    ${btitle}    #8、结束日期9、分账比例10、系统比例    #11总票房12净票房13分账片款14    实际应收    #15差额
 
 勾选全选
     sleep    5
@@ -144,7 +154,7 @@ Library           AutoItLibrary
     Click Element    Xpath=//html/body/div[5]/a[3]
     sleep    1
 
-导出ERP文件
+点击导出ERP文件
     sleep    5
     Wait Until Element Is Visible    Xpath=//html/body/div[5]/a[4]    #点击ERP
     Click Element    Xpath=//html/body/div[5]/a[4]
@@ -159,3 +169,17 @@ Library           AutoItLibrary
 勾选单选框
     sleep    5
     Click Element    xpath=//html/body/div[6]/table/tbody/tr/td[1]/input[5]
+
+一级界面点击第一个结算单位
+    Wait Until Element Is Visible    Xpath=//html/body/div[6]/table/tbody/tr[1]/td[2]/a    #审核通过
+    Click Element    Xpath=//html/body/div[6]/table/tbody/tr[1]/td[2]/a
+    sleep    2
+
+二级界面点击第一个影片
+    Wait Until Element Is Visible    Xpath=//html/body/div[5]/table/tbody/tr[1]/td[3]/a
+    Click Element    Xpath=//html/body/div[5]/table/tbody/tr[1]/td[3]/a
+    sleep    1
+
+点击返回
+    Wait Until Element Is Visible    xpath=//a[text()='返回']
+    Click Element    xpath=//a[text()='返回']

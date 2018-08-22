@@ -51,6 +51,7 @@ Resource          结算pages/影片一览表.txt
     确认
     sleep    3
     关闭浏览器
+    [Teardown]    Close All Browsers
 
 4_分配用户角色
     登录    admin    admin123
@@ -65,6 +66,7 @@ Resource          结算pages/影片一览表.txt
     点击角色报数单位统计
     点击角色批量分配
     关闭浏览器
+    [Teardown]    Close All Browsers
 
 5_自购可以成功上传并计算
     登录    wh5    123456
@@ -74,6 +76,90 @@ Resource          结算pages/影片一览表.txt
     sleep    1
     进入页面iframe
     上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\深圳市深影橙天院线有限公司全自购正常上传.xlsx
+    选择结算年月    2017-06
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    10
+    退出iframe
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    查询选择结算年月    2017-06
+    点击查询
+    勾选单选框
+    点击票房计算
+    确认
+    点击驳回
+    确认
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+6_结算表驳回
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    下拉选择结算单位    深圳市深影橙天院线有限公司
+    点击查询
+    勾选单选框
+    点击驳回    #是不是能驳回的的状态都得驳回
+    确认
+    [Teardown]    Close All Browsers
+
+7_缺少影院名称列上传不成功
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\深圳市深影橙天院线有限公司全自购缺少影院名称.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    影院不存在或名称错误，请按模板中表头名称修改
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+8_日期格式不正确上传不成功
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\深圳市深影橙天院线有限公司全自购日期格式不正确.xlsx
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    sleep    5    #此处只能默认选择，调时间与预想不对
+    确定上传
+    sleep    5
+    确认
+    sleep    10
+    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
+    Should Contain    ${text}    日期格式不正确，请改为YYYY-MM-DD,YYYY年MM月DD日,YYYY/MM/DD
+    sleep    2
+    退出iframe
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+9_审核一致通过
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击上传结算表
+    sleep    1
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\深圳市深影橙天院线有限公司-中数审核一致通过.xlsx
     选择上传结算单位    深圳市深影橙天院线有限公司
     确定上传
     确认
@@ -87,111 +173,83 @@ Resource          结算pages/影片一览表.txt
     勾选单选框
     点击票房计算
     确认
+    sleep    5
+    ${text}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[8]
+    Should Contain    ${text}    一致
+    sleep    2
+    勾选单选框
+    点击审核通过
+    确认
+    sleep    5
+    ${text1}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[5]
+    ${text2}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[6]
+    Should Contain    ${text1}    审核通过
+    Should Contain    ${text2}    月结算表审核通过！,待上传盖章件
+    sleep    2
+    勾选单选框
+    点击导出ERP文件
+    sleep    5
     点击驳回
     确认
+    sleep    5
+    ${text3}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[5]
+    ${text4}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[6]
+    Should Contain    ${text3}    审核驳回
+    Should Contain    ${text4}    月结算表审核驳回！需要再次上传结算表
+    sleep    2
     关闭浏览器
+    [Teardown]    Close All Browsers
 
-缺少影院名称列上传不成功
+10_审核一致通过并上传盖章件
     登录    wh5    123456
     点击结算业务
     sleep    1
     点击上传结算表
     sleep    1
     进入页面iframe
-    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\深圳市深影橙天院线有限公司全自购缺少影院名称.xlsx
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\深圳市深影橙天院线有限公司-中数审核一致通过.xlsx
     选择上传结算单位    深圳市深影橙天院线有限公司
     确定上传
     确认
-    sleep    3
-    ${text}    Get Text    xpath=//html/body/div[2]/table/tbody/tr[2]/td/div[1]/ul/li
-    Should Contain    ${text}    影院不存在或名称错误，请按模板中表头名称修改
-    sleep    2
+    sleep    10
     退出iframe
-    关闭浏览器
-    [Teardown]    Close All Browsers
-
-1_结算表驳回
-    登录    wh5    123456
-    点击结算业务
-    sleep    1
     点击结算数据审核
     sleep    1
     进入页面iframe
     下拉选择结算单位    深圳市深影橙天院线有限公司
     点击查询
     勾选单选框
-    点击驳回
+    点击票房计算
     确认
-
-2_结算表驳回
-    登录    wh5    123456
-    点击结算业务
-    sleep    1
-    点击结算数据审核
-    sleep    1
-    进入页面iframe
-    ${index}    Get Element Count    xpath=//td[1]/input[5]
-    log    ${index}
-    : FOR    ${i}    IN RANGE    1    ${index}    1
-    \    ${test}    Get Text    xpath=//tr[${i}]/td[2]/a
-    \    sleep    1
-    \    Run Keyword If    '${test}'=='深圳市深影橙天院线有限公司'    Click Element    xpath=//tr[${i}]/td[1]/input[5]
-    \    Run Keyword If    '${test}'=='深圳市深影橙天院线有限公司'    Click Element    xpath=//html/body/div[5]/a[3]
-    \    Run Keyword If    '${test}'=='深圳市深影橙天院线有限公司'    确认    Exit For Loop
-    关闭浏览器
-
-3_结算表驳回
-    登录    wh5    123456
-    点击结算业务
-    sleep    1
-    点击结算数据审核
-    sleep    1
-    进入页面iframe
-    ${index}    Get Element Count    xpath=//td[1]/input[5]
-    log    ${index}
-    : FOR    ${i}    IN RANGE    1    5
-    \    ${test}    Get Text    xpath=//tr[${i}]/td[2]/a
-    \    log    ${test}
-    \    sleep    2    Exit For Loop
-    关闭浏览器
-
-1_财务人员数据恢复全部驳回
-    登录    wh5    123456
-    点击结算业务
-    sleep    1
-    点击结算数据审核
-    sleep    1
-    进入页面iframe
+    sleep    5
+    ${text}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[8]
+    Should Contain    ${text}    一致
     sleep    2
-    ${index}    Get Element Count    xpath=//td[1]/input[5]
-    ${index1}    Evaluate    ${index}+1
-    : FOR    ${i}    IN RANGE    1    ${index1}    1
-    \    Click Element    xpath=//tr[${i}]/td[1]/input[5]
-    \    sleep    1
-    \    Click Element    xpath=//html/body/div[5]/a[3]
-    \    确认
-    \    sleep    2    Exit For Loop
+    勾选单选框
+    点击审核通过
+    确认
+    sleep    5
+    ${text1}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[5]
+    ${text2}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[6]
+    Should Contain    ${text1}    审核通过
+    Should Contain    ${text2}    月结算表审核通过！,待上传盖章件
+    sleep    2
+    退出iframe
+    点击上传结算盖章件
+    进入页面iframe
+    上传文件    G:\\AIzyces\\发行结算上传文件内容\\yxfiles\\深圳市深影橙天院线有限公司-201807.jpg
+    选择上传结算单位    深圳市深影橙天院线有限公司
+    确定上传
+    确认
+    sleep    2
+    退出iframe
+    点击结算数据审核
+    进入页面iframe
+    sleep    5
+    ${text1}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[5]
+    ${text2}    Get Text    xpath=//html/body/div[6]/table/tbody/tr[1]/td[6]
+    Should Contain    ${text1}    盖章件已上传
+    Should Contain    ${text2}    盖章件已上传
+    sleep    2
     关闭浏览器
     [Teardown]    Close All Browsers
-
-2_分配结算单位test
-    登录    admin    admin123
-    点击权限管理
-    点击用户管理
-    进入页面iframe
-    用户输入    wh5
-    点击查询
-    点击业务绑定
-    点击结算单位
-    点击查询
-    ${index}    Get Element Count    xpath=.//table/tbody/tr
-    log    ${index}
-    ${index1}    Evaluate    ${index}+1
-    : FOR    ${i}    IN RANGE    1    ${index1}    1
-    \    sleep    1
-    \    ${test}    Get Text    xpath=//tr[${i}]/td[2]
-    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    Click Element    xpath=//tr[${i}]/td[1]/input
-    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    sleep    1
-    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    Click Element    xpath=//a[text()='保存']
-    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    确认    Exit For Loop
-    关闭浏览器

@@ -5,3 +5,85 @@ Library           Selenium2Library
 testcase1
     Open Browser    http://218.246.120.154/    ie
     Close Browser
+
+2_结算表驳回
+    登录    wh5    123456    #循环判断驳回
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    ${index}    Get Element Count    xpath=//td[1]/input[5]
+    log    ${index}
+    : FOR    ${i}    IN RANGE    1    ${index}    1
+    \    ${test}    Get Text    xpath=//tr[${i}]/td[2]/a
+    \    sleep    1
+    \    Run Keyword If    '${test}'=='深圳市深影橙天院线有限公司'    Click Element    xpath=//tr[${i}]/td[1]/input[5]
+    \    Run Keyword If    '${test}'=='深圳市深影橙天院线有限公司'    Click Element    xpath=//html/body/div[5]/a[3]
+    \    Run Keyword If    '${test}'=='深圳市深影橙天院线有限公司'    确认    Exit For Loop
+    关闭浏览器
+
+3_结算表驳回
+    登录    wh5    123456    #全部驳回
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    ${index}    Get Element Count    xpath=//td[1]/input[5]
+    log    ${index}
+    : FOR    ${i}    IN RANGE    1    5
+    \    ${test}    Get Text    xpath=//tr[${i}]/td[2]/a
+    \    log    ${test}
+    \    sleep    2    Exit For Loop
+    关闭浏览器
+
+1_财务人员数据恢复全部驳回
+    登录    wh5    123456
+    点击结算业务
+    sleep    1
+    点击结算数据审核
+    sleep    1
+    进入页面iframe
+    sleep    2
+    ${index}    Get Element Count    xpath=//td[1]/input[5]
+    ${index1}    Evaluate    ${index}+1
+    : FOR    ${i}    IN RANGE    1    ${index1}    1
+    \    Click Element    xpath=//tr[${i}]/td[1]/input[5]
+    \    sleep    1
+    \    Click Element    xpath=//html/body/div[5]/a[3]
+    \    确认
+    \    sleep    2    Exit For Loop
+    关闭浏览器
+    [Teardown]    Close All Browsers
+
+2_分配结算单位test
+    登录    admin    admin123
+    点击权限管理
+    点击用户管理
+    进入页面iframe
+    用户输入    wh5
+    点击查询
+    点击业务绑定
+    点击结算单位
+    点击查询
+    ${index}    Get Element Count    xpath=.//table/tbody/tr
+    log    ${index}
+    ${index1}    Evaluate    ${index}+1
+    : FOR    ${i}    IN RANGE    1    ${index1}    1
+    \    sleep    1
+    \    ${test}    Get Text    xpath=//tr[${i}]/td[2]
+    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    Click Element    xpath=//tr[${i}]/td[1]/input
+    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    sleep    1
+    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    Click Element    xpath=//a[text()='保存']
+    \    Run Keyword If    '${test}'=='浙江横店电影院线有限公司—浙江横店电影院线有限公司'    确认    Exit For Loop
+    关闭浏览器
+
+111
+    ${yyyy}    ${mm}    ${dd} =    Get Time    year,month,day
+    log    ${yyyy}
+    log    ${mm}
+    log    ${dd}
+    ${time} =    Get Time
+    log    ${time} -1
+    ${time1}    Evaluate    ${time} -1
