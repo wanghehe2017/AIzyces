@@ -5,6 +5,7 @@ Library           Selenium2Library
 testcase1
     Open Browser    http://218.246.120.154/    ie
     Close Browser
+    Continue For Loop If    float(${text1})<=0.05
 
 2_结算表驳回
     登录    wh5    123456    #循环判断驳回
@@ -86,4 +87,5 @@ testcase1
     log    ${dd}
     ${time} =    Get Time
     log    ${time} -1
-    ${time1}    Evaluate    ${time} -1
+    ${t}    evaluate    float(0214)
+    log    ${t}
