@@ -1,0 +1,35 @@
+*** Settings ***
+Library           Selenium2Library
+Library           Collections
+Library           AutoItLibrary
+
+*** Keywords ***
+登录
+    [Arguments]    ${username}    ${userpassword}
+    Open Browser    http://10.1.31.65:8090/jspt/index.action    chrome    #http://124.207.105.120:8090/jspt/index.action
+    Maximize Browser Window
+    Input Text    id=username    ${username}
+    Input Text    id=userpassword    ${userpassword}
+    Click Element    id=login_img
+    Sleep    3
+
+退出登录
+    sleep    2
+    Click Element    xpath=//*[@id="top"]/div[1]/div[2]/ul/li[2]/a
+    sleep    2
+
+点击月结算附件页查询按钮
+    Wait Until Element Is Visible    css=.btn_search2
+    Click Element    css=.btn_search2
+
+进入页面iframe
+    Select Frame    id=mainFrame    #mainFrame
+
+退出iframe
+    Unselect Frame
+
+关闭浏览器
+    Close Browser
+
+刷新
+    Reload Page
